@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+
+    <context:component-scan base-package="com.example.h2database"></context:component-scan>
+
+    <jdbc:embedded-database id="dataSource" type="H2">
+        <jdbc:script location="schema.sql"></jdbc:script>
+        <jdbc:script location="test-data.sql"></jdbc:script>
+    </jdbc:embedded-database>
+
+    <bean id="exception" class="com.example.jdbc.exceptions.JDBCException">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"></property>
+        <property name="exceptionTranslator" ref="exception"></property>
+
+    </bean>
+    <bean id="namedJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+        <constructor-arg name="dataSource" ref="dataSource"></constructor-arg>
+
+    </bean>
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <constructor-arg name="dataSource" ref="dataSource"></constructor-arg>
+    </bean>
+
+
+</beans>

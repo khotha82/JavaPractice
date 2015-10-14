@@ -1,0 +1,29 @@
+package com.example.jms;
+
+import com.example.jms.sender.SimpleMessageSender;
+import org.apache.activemq.broker.BrokerService;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+/**
+ * Created by krishna_hotha on 5/18/15 2015.
+ */
+public class JmsTest {
+
+
+    public static void main(String[] args)  {
+
+
+
+
+        GenericXmlApplicationContext context=new GenericXmlApplicationContext();
+        context.load("spring-jms.xml","spring-jms-sender.xml");
+        context.refresh();
+
+        SimpleMessageSender messageSender = context.getBean("simpleMessageSender", SimpleMessageSender.class);
+        for(int i=0; i < 10; i++) {
+            messageSender.sendMessage("Test message: " + i);
+        }
+
+    }
+}

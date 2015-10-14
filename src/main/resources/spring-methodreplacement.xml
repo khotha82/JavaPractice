@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+   <bean id="helperBean" class="com.example.methodInjection.HelperBean" scope="prototype"></bean>
+    <bean id="abstractBean" class="com.example.methodInjection.AbstractBean">
+        <lookup-method name="getHelperBean" bean="helperBean"></lookup-method>
+    </bean>
+    <bean id="standardBean" class="com.example.methodInjection.StandardDemoBean">
+        <property name="helperBean" ref="helperBean"/>
+    </bean>
+</beans>

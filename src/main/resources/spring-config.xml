@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:property="http://www.springframework.org/schema/p"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="messageProvider" class="com.example.message.impl.MessageProviderImpl"/>
+    <bean id="messageRender" class="com.example.message.impl.MessageRendererImpl"
+          property:messageProvider-ref="messageProvider"></bean>
+    <bean id="constructorConfusion" class="com.example.hello.ConstructorConfusion">
+        <constructor-arg>
+            <value>90</value>
+        </constructor-arg>
+    </bean>
+</beans>

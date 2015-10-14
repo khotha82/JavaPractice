@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:property="http://www.springframework.org/schema/p"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="messageDigist" class="com.example.factory.MessageDigistThirdPartyFactory" property:algorithem="SHA1">
+
+    </bean>
+    <bean id="messageDigist1" class="com.example.factory.MessageDigistThirdPartyFactory">
+    </bean>
+
+    <bean id="shaDigist" factory-bean="messageDigist" factory-method="getInstance"></bean>
+    <bean id="md5Digist" factory-bean="messageDigist1" factory-method="getInstance"></bean>
+
+    <bean id="messageDigistCheck" class="com.example.factory.MessageDigistCheck" property:digest1-ref="shaDigist"
+          property:digest2-ref="md5Digist">
+
+    </bean>
+</beans>

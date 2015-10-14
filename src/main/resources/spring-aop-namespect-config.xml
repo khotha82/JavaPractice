@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="myBean" class="com.example.aop.config.MyBean">
+        <property name="dependency">
+            <ref bean="dependencyTarget"></ref>
+        </property>
+
+    </bean>
+
+    <bean id="myBean1" class="com.example.aop.config.MyBean">
+        <property name="dependency">
+            <ref bean="anotherBean"></ref>
+        </property>
+
+    </bean>
+
+    <bean id="anotherBean" class="com.example.aop.config.MyDependency"></bean>
+    <bean id="dependencyTarget" class="com.example.aop.config.MyDependency"></bean>
+
+    <bean id="advice" class="com.example.aop.config.AopAdvice"></bean>
+
+
+    <aop:config>
+        <aop:pointcut id="fooExecution" expression="execution(* foo*(int)) and args(intValue) and bean(dependencyTarget)"></aop:pointcut>
+        <aop:pointcut id="allMethods" expression="bean(dependencyTarget) "></aop:pointcut>
+        <aop:aspect ref="advice">
+            <aop:before pointcut-ref="fooExecution" method="printName" arg-names="intValue"></aop:before>
+            <aop:around pointcut-ref="allMethods" method="afterAroundAdvice" ></aop:around>
+        </aop:aspect>
+        
+
+    </aop:config>
+
+</beans>

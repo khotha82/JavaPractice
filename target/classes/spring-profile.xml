@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <beans profile="highschools">
+        <bean id="lunchService" class="com.example.profiles.highschool.FoodProviderServiceImpl"></bean>
+    </beans>
+    <beans profile="kindergarten">
+        <bean id="lunchService" class="com.example.profiles.kindergarden.FoodProviderServiceImpl"></bean>
+    </beans>
+</beans>
