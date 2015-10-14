@@ -14,7 +14,8 @@ public class MessageProxyTest {
 		ProxyFactory factory = new ProxyFactory();
 		factory.addAdvice(messageWriterDecorator);
 		factory.setTarget(messageWriter);
-		System.out.println("heelo");
+		System.out.println("heehoo heoeo");
+		System.out.println("hhhe");
 		messageWriter.print();
 		MessageWriter messageWriter1 = (MessageWriter) factory.getProxy();
 		messageWriter1.print();
