@@ -7,19 +7,18 @@ import org.springframework.aop.framework.ProxyFactory;
  */
 public class MessageProxyTest {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-        MessageWriter messageWriter=new MessageWriter();
-        MessageWriterDecorator messageWriterDecorator=new MessageWriterDecorator();
-        ProxyFactory factory=new ProxyFactory();
-        factory.addAdvice(messageWriterDecorator);
-        factory.setTarget(messageWriter);
-
-
-        messageWriter.print();
-        MessageWriter messageWriter1= (MessageWriter) factory.getProxy();
-        messageWriter1.print();
-        messageWriter1.printName();
-    }
+		MessageWriter messageWriter = new MessageWriter();
+		MessageWriterDecorator messageWriterDecorator = new MessageWriterDecorator();
+		ProxyFactory factory = new ProxyFactory();
+		factory.addAdvice(messageWriterDecorator);
+		factory.setTarget(messageWriter);
+		System.out.println("heelo");
+		messageWriter.print();
+		MessageWriter messageWriter1 = (MessageWriter) factory.getProxy();
+		messageWriter1.print();
+		messageWriter1.printName();
+	}
 
 }
