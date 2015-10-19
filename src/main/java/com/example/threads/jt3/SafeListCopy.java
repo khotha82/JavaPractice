@@ -9,23 +9,23 @@ import java.util.List;
  */
 public class SafeListCopy {
 
-    public  static void print(String [] words){
+	public static void print(String[] words) {
 
-        for(String word:words){
+		for (String word : words) {
 
-            System.out.println(word);
-        }
-    }
+			System.out.println(word);
+		}
+	}
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-        List<String> wordList= Collections.synchronizedList(new ArrayList<String>());
-        wordList.add("synchronization");
-        wordList.add("is");
-        wordList.add("important");
+		List<String> wordList = Collections.synchronizedList(new ArrayList<String>());
+		wordList.add("synchronization");
+		wordList.add("is");
+		wordList.add("important");
 
-        String[] list=wordList.toArray(new String[0]);
-        print(list);
-    }
+		String[] list = wordList.toArray(new String[0]);
+		print(list);
+	}
 
 }

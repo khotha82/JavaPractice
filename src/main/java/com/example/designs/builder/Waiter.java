@@ -5,18 +5,17 @@ package com.example.designs.builder;
  */
 public class Waiter {
 
-    private StarBuckBuilder builder;
+	private StarBuckBuilder builder;
 
+	public void setBuilder(StarBuckBuilder builder) {
+		this.builder = builder;
+	}
 
-    public void setBuilder(StarBuckBuilder builder) {
-        this.builder = builder;
-    }
+	public StartBucks construct(DrinkPreference drinkPreference) {
 
-    public StartBucks construct(DrinkPreference drinkPreference){
+		builder.build(drinkPreference);
+		return builder.getStartBucks();
 
-        builder.build(drinkPreference);
-        return builder.getStartBucks();
-
-    }
+	}
 
 }

@@ -5,8 +5,8 @@ package com.example.designs.command;
  */
 public class GarageDoor {
 
-    public void open(){
+	public void open() {
 
-        System.out.println("Door is opened");
-    }
+		System.out.println("Door is opened");
+	}
 }

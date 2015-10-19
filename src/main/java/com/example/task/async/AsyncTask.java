@@ -7,6 +7,7 @@ import java.util.concurrent.Future;
  */
 public interface AsyncTask {
 
-    public void asyncTask();
-    public Future<String> asyncTaskWithReturn();
+	public void asyncTask();
+
+	public Future<String> asyncTaskWithReturn();
 }

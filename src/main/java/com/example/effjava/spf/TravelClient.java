@@ -5,10 +5,9 @@ package com.example.effjava.spf;
  */
 public class TravelClient {
 
+	public static void main(String[] args) {
 
-    public static void main(String[] args) {
-
-        TravelService travelServices=TravelServices.newInstance("train");
-        System.out.println(travelServices.getVehical());
-    }
+		TravelService travelServices = TravelServices.newInstance("train");
+		System.out.println(travelServices.getVehical());
+	}
 }

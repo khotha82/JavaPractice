@@ -9,20 +9,20 @@ import org.aspectj.lang.ProceedingJoinPoint;
  */
 public class AopAdvice {
 
-    public void printName(JoinPoint jointPoint,int intValue){
+	public void printName(JoinPoint jointPoint, int intValue) {
 
-        if(intValue!=100){
-            System.out.println("this scares me");
-        }
-        System.out.println("Executing the method ddddd"+jointPoint.getSignature());
-    }
+		if (intValue != 100) {
+			System.out.println("this scares me");
+		}
+		System.out.println("Executing the method ddddd" + jointPoint.getSignature());
+	}
 
-    public void afterAroundAdvice(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+	public void afterAroundAdvice(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
 
-        System.out.println("Enter the dragon");
-        proceedingJoinPoint.proceed();
-        System.out.println("Exit the dragon");
+		System.out.println("Enter the dragon");
+		proceedingJoinPoint.proceed();
+		System.out.println("Exit the dragon");
 
-        System.out.println("----------");
-    }
+		System.out.println("----------");
+	}
 }

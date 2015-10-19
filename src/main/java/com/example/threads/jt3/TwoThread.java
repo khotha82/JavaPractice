@@ -3,23 +3,23 @@ package com.example.threads.jt3;
 /**
  * Created by krishna_hotha on 8/12/15 2015.
  */
-public class TwoThread extends  Thread{
+public class TwoThread extends Thread {
 
-    @Override
-    public void run() {
+	public static void main(String[] args) {
 
-        for(int i=0;i<10;i++)
-        System.out.println("running first thread");
-    }
+		Thread fist = new TwoThread();
+		fist.start();
 
-    public static void main(String[] args) {
+		for (int i = 0; i < 10; i++) {
+			System.out.println("main thread");
+		}
+		System.out.println(Runtime.getRuntime().availableProcessors());
+	}
 
-        Thread fist=new TwoThread();
-        fist.start();
+	@Override
+	public void run() {
 
-        for(int i=0;i<10;i++){
-            System.out.println("main thread");
-        }
-        System.out.println(Runtime.getRuntime().availableProcessors());
-    }
+		for (int i = 0; i < 10; i++)
+			System.out.println("running first thread");
+	}
 }

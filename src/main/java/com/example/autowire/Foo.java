@@ -5,10 +5,9 @@ package com.example.autowire;
  */
 public class Foo {
 
-    Foo(){
+	Foo() {
 
-        System.out.println("foo is getting created");
-    }
-
+		System.out.println("foo is getting created");
+	}
 
 }

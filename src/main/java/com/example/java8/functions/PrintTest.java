@@ -5,5 +5,5 @@ package com.example.java8.functions;
  */
 public interface PrintTest {
 
-     void printme(int a);
+	void printme(int a);
 }

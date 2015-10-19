@@ -7,6 +7,6 @@ import java.util.List;
  */
 public interface FoodProviderService {
 
-    List<Food> getLunch();
+	List<Food> getLunch();
 
 }

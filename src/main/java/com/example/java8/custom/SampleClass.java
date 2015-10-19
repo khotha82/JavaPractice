@@ -5,8 +5,7 @@ package com.example.java8.custom;
  */
 public class SampleClass {
 
+	private SampleClass() {
 
-    private SampleClass(){
-
-    }
+	}
 }

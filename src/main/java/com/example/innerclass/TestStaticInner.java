@@ -5,34 +5,33 @@ package com.example.innerclass;
  */
 public class TestStaticInner {
 
-    private int i=0;
-    private static int j=0;
+	private static int j = 0;
+	private int i = 0;
 
-    private static class StaticInner{
+	public static void main(String[] args) {
 
-        public void print(){
+		TestStaticInner nonStatic = new TestStaticInner();
 
-            System.out.println("hello" + " " + j);
+	}
 
-        }
-    }
+	public void printMe() {
 
-    class NonStatic{
+		System.out.println("heelo" + i);
+	}
 
+	private static class StaticInner {
 
-        public void print(){
-            printMe();
-        }
-    }
-    public void printMe(){
+		public void print() {
 
-        System.out.println("heelo"+i);
-    }
+			System.out.println("hello" + " " + j);
 
-    public static void main(String[] args) {
+		}
+	}
 
-        TestStaticInner nonStatic=new TestStaticInner();
+	class NonStatic {
 
-
-    }
+		public void print() {
+			printMe();
+		}
+	}
 }

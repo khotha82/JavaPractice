@@ -1,9 +1,10 @@
 package com.example.message.impl;
 
-import com.example.message.MessageProvider;
-import com.example.message.MessageRenderer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.example.message.MessageProvider;
+import com.example.message.MessageRenderer;
 
 /**
  * Created by krishna_hotha on 3/25/15.

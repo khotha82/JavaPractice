@@ -5,15 +5,15 @@ package com.example.java8.functions;
  */
 public class TestPrintTest {
 
-    public static void print(PrintTest p){
+	public static void print(PrintTest p) {
 
-        System.out.println(p);
-    }
+		System.out.println(p);
+	}
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-        PrintTest pt=(a)->{
-            System.out.println("hello");
-        };
-    }
+		PrintTest pt = (a) -> {
+			System.out.println("hello");
+		};
+	}
 }

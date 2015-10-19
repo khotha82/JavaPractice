@@ -5,7 +5,7 @@ package com.example.autowire;
  */
 public class Bar {
 
-    Bar(){
+	Bar() {
 
-    }
+	}
 }

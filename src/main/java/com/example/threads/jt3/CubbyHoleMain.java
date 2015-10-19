@@ -5,52 +5,48 @@ package com.example.threads.jt3;
  */
 public class CubbyHoleMain {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-        final CubbyHole cubbyHole=new CubbyHole();
+		final CubbyHole cubbyHole = new CubbyHole();
 
-        Runnable r=()->{
+		Runnable r = () -> {
 
-            String str;
-            try {
-                Thread.sleep(1000);
+			String str;
+			try {
+				Thread.sleep(1000);
 
+				cubbyHole.putIn("multi");
 
-                cubbyHole.putIn("multi");
+				cubbyHole.putIn("programming");
 
+				cubbyHole.putIn("java");
 
-                cubbyHole.putIn("programming");
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		};
 
+		Runnable r1 = () -> {
 
-                cubbyHole.putIn("java");
+			String str;
+			try {
 
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        };
+				System.out.println(cubbyHole.getOut());
+				Thread.sleep(1000);
+				System.out.println(cubbyHole.getOut());
 
+				System.out.println(cubbyHole.getOut());
 
-        Runnable r1=()->{
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		};
 
-            String str;
-            try {
+		Thread thread = new Thread(r);
+		Thread thread1 = new Thread(r1);
 
-                System.out.println(cubbyHole.getOut());
-                Thread.sleep(1000);
-                System.out.println(cubbyHole.getOut());
+		thread.start();
+		thread1.start();
 
-                System.out.println(cubbyHole.getOut());
-
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        };
-
-        Thread thread=new Thread(r);
-        Thread thread1=new Thread(r1);
-
-        thread.start();
-        thread1.start();
-
-    }
+	}
 }

@@ -5,9 +5,9 @@ package com.example.aop.security;
  */
 public class SecurityBean {
 
-    public void writeSecureMessage(){
+	public void writeSecureMessage() {
 
-        System.out.println("i am writing a secure message needs details to check");
-    }
+		System.out.println("i am writing a secure message needs details to check");
+	}
 
 }

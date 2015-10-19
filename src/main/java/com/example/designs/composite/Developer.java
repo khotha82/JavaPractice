@@ -5,12 +5,8 @@ package com.example.designs.composite;
  */
 public class Developer extends Employee {
 
-
-
 	public Developer(String name, String salary, String position) {
-		super(name,salary,position);
+		super(name, salary, position);
 	}
-
-
 
 }

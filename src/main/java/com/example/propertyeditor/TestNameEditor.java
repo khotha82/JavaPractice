@@ -8,21 +8,21 @@ import org.springframework.context.support.GenericXmlApplicationContext;
  */
 public class TestNameEditor {
 
-    private Name name;
+	private Name name;
 
-    public Name getName() {
-        return name;
-    }
+	public static void main(String[] args) {
 
-    public void setName(Name name) {
-        this.name = name;
-    }
+		ApplicationContext context = new GenericXmlApplicationContext("spring-propertyeditor.xml");
+		TestNameEditor editor = (TestNameEditor) context.getBean("testNameEditor");
+		System.out.println(editor.getName());
 
-    public static void main(String[] args) {
+	}
 
-        ApplicationContext context = new GenericXmlApplicationContext("spring-propertyeditor.xml");
-        TestNameEditor editor= (TestNameEditor)context.getBean("testNameEditor");
-        System.out.println(editor.getName());
+	public Name getName() {
+		return name;
+	}
 
-    }
+	public void setName(Name name) {
+		this.name = name;
+	}
 }

@@ -5,59 +5,60 @@ package com.example.threads.jt3;
  */
 public class DeadLock {
 
-    private String objectId;
+	private String objectId;
 
+	public DeadLock(String objectId) {
 
-    public DeadLock(String objectId) {
+		this.objectId = objectId;
+	}
 
-        this.objectId = objectId;
-    }
+	public static void print(String msg) {
 
-    public synchronized  void checkOther(DeadLock other){
+		System.out.println(Thread.currentThread().getName() + " " + msg);
+	}
 
-        print("entering checkother with object Id"+objectId);
+	public static void main(String[] args) throws InterruptedException {
 
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        other.action();
+		DeadLock object1 = new DeadLock("object1");
+		DeadLock object2 = new DeadLock("object2");
 
-        print("levling checkother with object Id" + objectId);
-    }
+		Thread t = new Thread(() -> {
 
-    public synchronized void action(){
+			object1.checkOther(object2);
+		}, "Thread1");
 
-        print("entering action"+objectId);
+		Thread t1 = new Thread(() -> {
+			object2.checkOther(object1);
+		}, "Thread2");
+		t.start();
 
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        print("leving action"+objectId);
-    }
+		Thread.sleep(100);
+		t1.start();
+	}
 
-    public static void print(String msg) {
+	public synchronized void checkOther(DeadLock other) {
 
-        System.out.println(Thread.currentThread().getName() + " " + msg);
-    }
+		print("entering checkother with object Id" + objectId);
 
-    public static void main(String[] args) throws InterruptedException {
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		other.action();
 
-        DeadLock object1=new DeadLock("object1");
-        DeadLock object2=new DeadLock("object2");
+		print("levling checkother with object Id" + objectId);
+	}
 
-        Thread t=new Thread(()->{
+	public synchronized void action() {
 
-            object1.checkOther(object2);
-        },"Thread1");
+		print("entering action" + objectId);
 
-        Thread t1=new Thread(()->{object2.checkOther(object1);},"Thread2");
-        t.start();
-
-        Thread.sleep(100);
-        t1.start();
-    }
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		print("leving action" + objectId);
+	}
 }

@@ -9,10 +9,10 @@ import org.joda.time.format.DateTimeFormatter;
  */
 public class DateTimeTest {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-        DateTimeFormatter dateTimeFormatter= DateTimeFormat.forPattern("yyyy-MM-dd");
+		DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern("yyyy-MM-dd");
 
-        System.out.println(DateTime.parse("1990-01-01",dateTimeFormatter));
-    }
+		System.out.println(DateTime.parse("1990-01-01", dateTimeFormatter));
+	}
 }

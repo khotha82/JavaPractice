@@ -10,13 +10,12 @@ import org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator;
  */
 public class JDBCException extends SQLErrorCodeSQLExceptionTranslator {
 
+	@Override
+	public DataAccessException translate(String task, String sql, SQLException ex) {
 
-    @Override
-    public DataAccessException translate(String task, String sql, SQLException ex) {
-
-        System.out.println(task);
-        System.out.println(sql);
-        System.out.println(ex);
-        return super.translate(task, sql, ex);
-    }
+		System.out.println(task);
+		System.out.println(sql);
+		System.out.println(ex);
+		return super.translate(task, sql, ex);
+	}
 }

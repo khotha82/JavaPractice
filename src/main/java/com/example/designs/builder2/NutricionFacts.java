@@ -14,6 +14,20 @@ public class NutricionFacts {
 	private final int sodium;
 	private final int carbohydrate;
 
+	private NutricionFacts(Builder builder) {
+		this.servings = builder.servings;
+		this.calories = builder.calories;
+		this.carbohydrate = builder.carbohydrate;
+		this.fat = builder.fat;
+		this.servingSize = builder.servingSize;
+		this.sodium = builder.sodium;
+	}
+
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this);
+	}
+
 	public static class Builder {
 
 		private int servingSize;
@@ -28,44 +42,33 @@ public class NutricionFacts {
 			this.servings = servings;
 		}
 
-        public Builder setCalories(int calories) {
-            this.calories = calories;
-            return this;
+		public Builder setCalories(int calories) {
+			this.calories = calories;
+			return this;
 
-        }
-        public Builder setFat(int fat) {
-            this.fat = fat;
-            return this;
+		}
 
-        }
-        public Builder setSodium(int sodium) {
-            this.sodium = sodium;
-            return this;
+		public Builder setFat(int fat) {
+			this.fat = fat;
+			return this;
 
-        }
+		}
 
-        public Builder setCarboHydrate(int carboHydrate) {
-            this.sodium = carboHydrate;
-            return this;
+		public Builder setSodium(int sodium) {
+			this.sodium = sodium;
+			return this;
 
-        }
-        public NutricionFacts build(){
+		}
 
-            return new NutricionFacts(this);
-        }
+		public Builder setCarboHydrate(int carboHydrate) {
+			this.sodium = carboHydrate;
+			return this;
+
+		}
+
+		public NutricionFacts build() {
+
+			return new NutricionFacts(this);
+		}
 	}
-
-	private NutricionFacts(Builder builder) {
-		this.servings = builder.servings;
-		this.calories = builder.calories;
-		this.carbohydrate = builder.carbohydrate;
-		this.fat = builder.fat;
-		this.servingSize = builder.servingSize;
-		this.sodium = builder.sodium;
-	}
-
-    @Override
-    public String toString() {
-        return ToStringBuilder.reflectionToString(this);
-    }
 }

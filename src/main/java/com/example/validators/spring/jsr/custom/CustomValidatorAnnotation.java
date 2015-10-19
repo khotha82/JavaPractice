@@ -1,8 +1,9 @@
 package com.example.validators.spring.jsr.custom;
 
+import java.lang.annotation.*;
+
 import javax.validation.Constraint;
 import javax.validation.Payload;
-import java.lang.annotation.*;
 
 /**
  * Created by krishna_hotha on 5/7/15 2015.
@@ -13,7 +14,9 @@ import java.lang.annotation.*;
 @Documented
 public @interface CustomValidatorAnnotation {
 
-    String message() default "some rror";
-    Class<?>[] groups() default {};
-    Class<? extends Payload> [] payload() default {};
+	String message() default "some rror";
+
+	Class<?>[] groups() default {};
+
+	Class<? extends Payload>[] payload() default {};
 }

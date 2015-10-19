@@ -1,15 +1,15 @@
 package com.example.aop.pointcut.performace;
 
-import org.springframework.aop.support.StaticMethodMatcherPointcut;
-
 import java.lang.reflect.Method;
+
+import org.springframework.aop.support.StaticMethodMatcherPointcut;
 
 /**
  * Created by krishna_hotha on 4/24/15.
  */
 public class SimplePointCut extends StaticMethodMatcherPointcut {
-    @Override
-    public boolean matches(Method method, Class<?> aClass) {
-        return method.getName().equals("advised");
-    }
+	@Override
+	public boolean matches(Method method, Class<?> aClass) {
+		return method.getName().equals("advised");
+	}
 }

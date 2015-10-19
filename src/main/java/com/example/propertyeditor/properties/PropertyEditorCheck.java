@@ -8,14 +8,13 @@ import org.springframework.context.support.GenericXmlApplicationContext;
  */
 public class PropertyEditorCheck {
 
+	public static void main(String[] args) {
 
-    public static void main(String[] args) {
+		ApplicationContext context = new GenericXmlApplicationContext("spring-convertdate.xml");
+		Contact editor = (Contact) context.getBean("contact");
+		System.out.println(editor);
 
-        ApplicationContext context = new GenericXmlApplicationContext("spring-convertdate.xml");
-        Contact editor= (Contact)context.getBean("contact");
-        System.out.println(editor);
-
-        Contact anotherContact= (Contact)context.getBean("anotherContact");
-        System.out.println(anotherContact);
-    }
+		Contact anotherContact = (Contact) context.getBean("anotherContact");
+		System.out.println(anotherContact);
+	}
 }

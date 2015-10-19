@@ -5,17 +5,16 @@ package com.example.validators.spring.jsr;
  */
 public enum CustomerType {
 
-    INDIVIDUAL("I"),CORPORATE("R");
+	INDIVIDUAL("I"), CORPORATE("R");
 
-    private String code;
+	private String code;
 
-    CustomerType(String code) {
-        this.code = code;
-    }
+	CustomerType(String code) {
+		this.code = code;
+	}
 
-
-    @Override
-    public String toString() {
-        return code;
-    }
+	@Override
+	public String toString() {
+		return code;
+	}
 }

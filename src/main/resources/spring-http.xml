@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns="http://www.springframework.org/schema/beans"
-       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="remoteContactService" class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean">
         <property name="serviceUrl"
-                  value="http://localhost:8080/webpractice/remoting/ContactService" />
+                  value="http://localhost:8080/webpractice/remoting/ContactService"/>
         <property name="serviceInterface"
-                  value="com.example.http.ContactDAOService" />
+                  value="com.example.http.ContactDAOService"/>
     </bean>
 
 </beans>

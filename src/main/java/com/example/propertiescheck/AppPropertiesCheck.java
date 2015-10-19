@@ -7,11 +7,11 @@ import org.springframework.context.support.GenericXmlApplicationContext;
  */
 public class AppPropertiesCheck {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-        GenericXmlApplicationContext context=new GenericXmlApplicationContext("spring-properties.xml");
-        AppProperties app=(AppProperties)context.getBean("appproperties");
-        System.out.println(app.getAge());
-        System.out.println(app.getName());
-    }
+		GenericXmlApplicationContext context = new GenericXmlApplicationContext("spring-properties.xml");
+		AppProperties app = (AppProperties) context.getBean("appproperties");
+		System.out.println(app.getAge());
+		System.out.println(app.getName());
+	}
 }

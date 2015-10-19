@@ -1,7 +1,5 @@
 package com.example.beancontext;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 /**
@@ -9,49 +7,45 @@ import org.springframework.context.support.GenericXmlApplicationContext;
  */
 public class SimpleBean {
 
-    private  String name;
-    private  String age;
+	private String name;
+	private String age;
 
+	public static void main(String[] args) {
 
-    public String getAge() {
-        return age;
-    }
+		GenericXmlApplicationContext context = new GenericXmlApplicationContext("spring-context.xml");
 
-    public void setAge(String age) {
-        this.age = age;
-    }
+		SimpleBean sb = (SimpleBean) context.getBean("simple");
+		context.registerShutdownHook();
+		System.out.println(sb.getAge());
+		System.out.println(sb.getName());
 
-    public String getName() {
-        return name;
-    }
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public String getAge() {
+		return age;
+	}
 
-    public static void main(String[] args) {
+	public void setAge(String age) {
+		this.age = age;
+	}
 
-        GenericXmlApplicationContext context = new GenericXmlApplicationContext("spring-context.xml");
+	public String getName() {
+		return name;
+	}
 
-        SimpleBean sb=(SimpleBean)context.getBean("simple");
-        context.registerShutdownHook();
-        System.out.println(sb.getAge());
-        System.out.println(sb.getName());
+	public void setName(String name) {
+		this.name = name;
+	}
 
+	public void init() {
 
-    }
+		System.out.println(age + " " + name);
+		System.out.println("int the init method");
+	}
 
-    public  void init(){
+	public void destroy() {
 
-
-        System.out.println(age +" "+name);
-        System.out.println("int the init method");
-    }
-
-    public void destroy (){
-
-        System.out.println("distroing the bean");
-    }
-
+		System.out.println("distroing the bean");
+	}
 
 }

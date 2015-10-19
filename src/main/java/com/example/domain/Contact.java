@@ -11,17 +11,19 @@ public class Contact implements Serializable {
 	private Integer id;
 	private String firstName;
 	private String lastName;
-    private Date birthDate;
+	private Date birthDate;
 
+	public Contact() {
 
-
-    public Contact() {
-
-        System.out.println("Creating the contact");
-    }
+		System.out.println("Creating the contact");
+	}
 
 	public Date getBirthDate() {
 		return birthDate;
+	}
+
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
 	}
 
 	public Integer getId() {
@@ -46,10 +48,6 @@ public class Contact implements Serializable {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
-	}
-
-	public void setBirthDate(Date birthDate) {
-		this.birthDate = birthDate;
 	}
 
 	public String toString() {

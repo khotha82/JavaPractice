@@ -7,18 +7,17 @@ import java.util.function.Function;
  */
 public class TestFunction {
 
+	public static void main(String[] args) {
 
-     static class FunCheck implements Function<String,String>{
+		TestFunction.FunCheck f = new TestFunction.FunCheck();
+		System.out.println(f.apply("hotha"));
+	}
 
-         @Override
-         public String apply(String s) {
-             return "Hello"+s;
-         }
-     }
+	static class FunCheck implements Function<String, String> {
 
-    public static void main(String[] args) {
-
-        TestFunction.FunCheck f=new TestFunction.FunCheck();
-        System.out.println(f.apply("hotha"));
-    }
+		@Override
+		public String apply(String s) {
+			return "Hello" + s;
+		}
+	}
 }

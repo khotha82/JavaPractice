@@ -5,12 +5,12 @@ package com.example.effjava.chapter4;
  */
 public class PrivateInterface {
 
-    private PrivateInterface(){
-        System.out.println("in con");
-    }
-    public void print(){
+	private PrivateInterface() {
+		System.out.println("in con");
+	}
 
-        System.out.println("i am in print method");
-    }
+	public void print() {
+
+		System.out.println("i am in print method");
+	}
 }
-

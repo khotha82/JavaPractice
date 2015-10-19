@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 @Component("b")
 public class B {
 
-    public B() {
+	public B() {
 
-        System.out.println("Creating the constructor B");
-    }
+		System.out.println("Creating the constructor B");
+	}
 }

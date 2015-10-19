@@ -7,11 +7,10 @@ import com.example.effjava.chapter1.ExposeTest;
  */
 public class TestExpose {
 
+	public static void main(String[] args) {
 
-    public static void main(String[] args) {
+		ExposeTest exposeTest = new ExposeTest();
 
-        ExposeTest exposeTest=new ExposeTest();
-
-        System.out.println(exposeTest.getParent());
-    }
+		System.out.println(exposeTest.getParent());
+	}
 }

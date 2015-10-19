@@ -1,8 +1,5 @@
 package com.example.multpile;
 
-import com.example.message.MessageRenderer;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 /**
@@ -10,34 +7,33 @@ import org.springframework.context.support.GenericXmlApplicationContext;
  */
 public class SimpleTarget {
 
-    private String value;
+	private String value;
 
+	public static void main(String[] args) {
+		// GenericXmlApplicationContext parent = new GenericXmlApplicationContext();
+		// parent.load("spring-parent.xml");
+		// parent.refresh();
 
-    public void setValue(String value) {
-        this.value = value;
-    }
+		GenericXmlApplicationContext child = new GenericXmlApplicationContext();
+		child.load("spring-child.xml");
+		// child.setParent(parent);
+		child.refresh();
 
-    public String getValue() {
-        return value;
-    }
+		SimpleTarget target1 = (SimpleTarget) child.getBean("simpleTarget");
+		SimpleTarget target2 = (SimpleTarget) child.getBean("simpleTarget1");
+		SimpleTarget target3 = (SimpleTarget) child.getBean("simpleTarget2");
 
-    public static void main(String[] args) {
-//        GenericXmlApplicationContext parent = new GenericXmlApplicationContext();
-//        parent.load("spring-parent.xml");
-//        parent.refresh();
+		System.out.println(target1.getValue());
+		System.out.println(target2.getValue());
+		System.out.println(target3.getValue());
+	}
 
-        GenericXmlApplicationContext child = new GenericXmlApplicationContext();
-        child.load("spring-child.xml");
-        //child.setParent(parent);
-        child.refresh();
+	public String getValue() {
+		return value;
+	}
 
-        SimpleTarget target1 = (SimpleTarget) child.getBean("simpleTarget");
-        SimpleTarget target2 = (SimpleTarget) child.getBean("simpleTarget1");
-        SimpleTarget target3 = (SimpleTarget) child.getBean("simpleTarget2");
-
-        System.out.println(target1.getValue());
-        System.out.println(target2.getValue());
-        System.out.println(target3.getValue());
-    }
+	public void setValue(String value) {
+		this.value = value;
+	}
 
 }

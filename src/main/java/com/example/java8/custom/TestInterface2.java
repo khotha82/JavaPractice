@@ -5,8 +5,8 @@ package com.example.java8.custom;
  */
 public interface TestInterface2 {
 
-    static void printName()  {
+	static void printName() {
 
-        System.out.println("krishna");
-    }
+		System.out.println("krishna");
+	}
 }

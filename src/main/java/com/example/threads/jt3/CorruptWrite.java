@@ -5,45 +5,49 @@ package com.example.threads.jt3;
  */
 public class CorruptWrite {
 
-    private String firstName;
+	private String firstName;
 
-    private String lastName;
+	private String lastName;
 
-    public synchronized  void setNames(String firstName,String lastName)  {
+	public static void print(String msg) {
 
-        this.firstName=firstName;
+		System.out.println(Thread.currentThread().getName() + " " + msg);
+	}
 
-        if(this.firstName.length()>5){
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-        else{
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-        this.lastName=lastName;
+	public static void main(String[] args) throws InterruptedException {
 
-        print("Leaving setName FirstName"+this.firstName+"LastName "+this.lastName);
-    }
+		CorruptWrite corruptWrite = new CorruptWrite();
 
-    public static void print(String msg){
+		new Thread(() -> {
+			corruptWrite.setNames("Krishna", "Hotha");
+		}, "ThreadA").start();
 
-        System.out.println(Thread.currentThread().getName()+" "+msg);
-    }
+		Thread.sleep(200);
+		new Thread(() -> {
+			corruptWrite.setNames("Arnavd", "Pranav");
+		}, "ThreadA").start();
+	}
 
-    public static void main(String[] args) throws InterruptedException {
+	public synchronized void setNames(String firstName, String lastName) {
 
-        CorruptWrite corruptWrite=new CorruptWrite();
+		this.firstName = firstName;
 
-        new Thread(()->{corruptWrite.setNames("Krishna","Hotha");},"ThreadA").start();
+		if (this.firstName.length() > 5) {
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		else {
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		this.lastName = lastName;
 
-        Thread.sleep(200);
-        new Thread(()->{corruptWrite.setNames("Arnavd","Pranav");},"ThreadA").start();
-    }
+		print("Leaving setName FirstName" + this.firstName + "LastName " + this.lastName);
+	}
 }

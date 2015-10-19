@@ -5,17 +5,16 @@ package com.example.validators.spring.jsr;
  */
 public enum Gender {
 
-    MALE("M"),FEMALE("F");
-    private String type;
+	MALE("M"), FEMALE("F");
+	private String type;
 
-    Gender(String type) {
-        this.type = type;
-    }
+	Gender(String type) {
+		this.type = type;
+	}
 
+	@Override
+	public String toString() {
 
-    @Override
-    public String toString() {
-
-        return type;
-    }
+		return type;
+	}
 }

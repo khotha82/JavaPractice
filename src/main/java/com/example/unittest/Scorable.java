@@ -5,5 +5,5 @@ package com.example.unittest;
  */
 public interface Scorable {
 
-   public int getScore();
+	public int getScore();
 }

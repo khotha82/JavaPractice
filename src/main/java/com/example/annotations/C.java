@@ -8,9 +8,9 @@ import org.springframework.stereotype.Component;
 @Component("c")
 public class C {
 
-    public C() {
+	public C() {
 
-        System.out.println("creating the constructor C");
-    }
+		System.out.println("creating the constructor C");
+	}
 
 }

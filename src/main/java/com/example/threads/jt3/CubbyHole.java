@@ -5,44 +5,38 @@ package com.example.threads.jt3;
  */
 public class CubbyHole {
 
-    private Object slot;
+	private Object slot;
 
-    public CubbyHole() {
-        this.slot = null;
-    }
+	public CubbyHole() {
+		this.slot = null;
+	}
 
-    public synchronized void putIn(Object object) throws InterruptedException {
+	public synchronized void putIn(Object object) throws InterruptedException {
 
+		while (slot != null) {
 
-            while(slot!=null){
+			this.wait();
+		}
+		slot = object;
+		System.out.println("Put in " + object);
 
-                this.wait();
-            }
-        slot=object;
-        System.out.println("Put in "+object);
+		notify();
 
+	}
 
+	public synchronized Object getOut() throws InterruptedException {
 
-        notify();
+		while (slot == null) {
 
+			wait();
+		}
 
-    }
+		Object object = slot;
+		slot = null;
 
-    public synchronized Object getOut() throws InterruptedException {
+		notifyAll();
+		System.out.println("cleaning cub hole");
+		return object;
 
-
-
-        while(slot==null){
-
-            wait();
-        }
-
-        Object object=slot;
-        slot=null;
-
-        notifyAll();
-        System.out.println("cleaning cub hole");
-        return object;
-
-    }
+	}
 }

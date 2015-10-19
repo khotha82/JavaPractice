@@ -5,20 +5,20 @@ package com.example.threads;
  */
 public class UnsafeSequence {
 
-    private int value=0;
+	private int value = 0;
 
-    public int getValue() {
-        return value++;
-    }
+	public static void main(String[] args) {
 
-    public static void main(String[] args) {
+		Integer i = 0;
+		Integer j = i;
+		i++;
+		i++;
 
-        Integer i=0;
-        Integer j=i;
-        i++;
-        i++;
+		System.out.println(i + "  " + j);
+	}
 
-        System.out.println(i+"  "+j);
-    }
+	public int getValue() {
+		return value++;
+	}
 
 }

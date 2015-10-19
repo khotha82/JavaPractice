@@ -5,7 +5,7 @@ package com.example.methodInjection;
  */
 public interface DemoBean {
 
-    public HelperBean getHelperBean();
+	public HelperBean getHelperBean();
 
-    public void doSomeThing();
+	public void doSomeThing();
 }

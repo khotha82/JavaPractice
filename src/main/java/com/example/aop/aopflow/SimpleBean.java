@@ -5,9 +5,8 @@ package com.example.aop.aopflow;
  */
 public class SimpleBean {
 
-    public void print(){
+	public void print() {
 
-        System.out.println("printint your name");
-    }
+		System.out.println("printint your name");
+	}
 }
-

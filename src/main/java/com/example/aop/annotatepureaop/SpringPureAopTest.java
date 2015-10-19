@@ -1,7 +1,5 @@
 package com.example.aop.annotatepureaop;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 /**
@@ -9,15 +7,14 @@ import org.springframework.context.support.GenericXmlApplicationContext;
  */
 public class SpringPureAopTest {
 
+	public static void main(String[] args) {
 
-    public static void main(String[] args) {
+		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
+		ctx.load(new String[] { "spring-pure-aspect.xml" });
+		ctx.refresh();
 
-        GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
-        ctx.load(new String[] {"spring-pure-aspect.xml"});
-        ctx.refresh();
-
-        MessageWriter mw=new MessageWriter();
-        mw.foo();
-        mw.writeMessage();
-    }
+		MessageWriter mw = new MessageWriter();
+		mw.foo();
+		mw.writeMessage();
+	}
 }

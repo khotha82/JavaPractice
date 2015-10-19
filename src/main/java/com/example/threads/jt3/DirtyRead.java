@@ -9,6 +9,26 @@ public class DirtyRead {
 
 	private String lastName;
 
+	public static void print(String msg) {
+
+		System.out.println(Thread.currentThread().getName() + " " + msg);
+	}
+
+	public static void main(String[] args) throws InterruptedException {
+
+		DirtyRead corruptWrite = new DirtyRead();
+		corruptWrite.setNames("Arnavd", "Pranav");
+
+		new Thread(() -> {
+			corruptWrite.setNames("Krishna", "Hotha");
+		}, "ThreadA").start();
+
+		Thread.sleep(200);
+		new Thread(() -> {
+			print(corruptWrite.getNames());
+		}, "Threadb").start();
+	}
+
 	public void setNames(String firstName, String lastName) {
 
 		synchronized (this) {
@@ -26,30 +46,10 @@ public class DirtyRead {
 		}
 	}
 
-	public static void print(String msg) {
-
-		System.out.println(Thread.currentThread().getName() + " " + msg);
-	}
-
 	public String getNames() {
 		synchronized (this) {
 
 		}
 		return " " + firstName + " " + lastName;
-	}
-
-	public static void main(String[] args) throws InterruptedException {
-
-		DirtyRead corruptWrite = new DirtyRead();
-		corruptWrite.setNames("Arnavd", "Pranav");
-
-		new Thread(() -> {
-			corruptWrite.setNames("Krishna", "Hotha");
-		}, "ThreadA").start();
-
-		Thread.sleep(200);
-		new Thread(() -> {
-			print(corruptWrite.getNames());
-		}, "Threadb").start();
 	}
 }

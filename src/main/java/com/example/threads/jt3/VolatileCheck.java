@@ -6,13 +6,23 @@ package com.example.threads.jt3;
 public class VolatileCheck implements Runnable {
 
 	private int value;
-	private  volatile boolean missedIt;
-	private    long creationTime;
+	private volatile boolean missedIt;
+	private long creationTime;
 
 	public VolatileCheck() {
 		this.value = 10;
 		this.missedIt = false;
 		this.creationTime = System.currentTimeMillis();
+	}
+
+	public static void main(String[] args) throws InterruptedException {
+
+		VolatileCheck volatileCheck = new VolatileCheck();
+		Thread.sleep(100);
+		Thread t = new Thread(volatileCheck);
+		t.start();
+		Thread.sleep(100);
+		volatileCheck.workMethod();
 	}
 
 	private void print(String msg) {
@@ -32,8 +42,6 @@ public class VolatileCheck implements Runnable {
 
 		String nameStr = " " +
 				Thread.currentThread().getName();
-
-
 
 		System.out.println(secStr + " " + nameStr + " " +
 				msg);
@@ -61,7 +69,7 @@ public class VolatileCheck implements Runnable {
 			}
 
 		}
-		System.out.println(missedIt+"  "+value);
+		System.out.println(missedIt + "  " + value);
 		print("leaving run()");
 	}
 
@@ -86,15 +94,5 @@ public class VolatileCheck implements Runnable {
 
 		print("leaving workMethod()");
 
-	}
-
-	public static void main(String[] args) throws InterruptedException {
-
-		VolatileCheck volatileCheck=new VolatileCheck();
-		Thread.sleep(100);
-		Thread t=new Thread(volatileCheck);
-		t.start();
-		Thread.sleep(100);
-		volatileCheck.workMethod();
 	}
 }

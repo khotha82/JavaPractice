@@ -9,62 +9,60 @@ public class SleepExample {
 
 		String threadName =
 				Thread.currentThread().getName();
-		System.out.format("%s: %s%n",threadName,message);
+		System.out.format("%s: %s%n", threadName, message);
 	}
 
-    private static class MessageLoop implements  Runnable{
+	public static void main(String[] args) throws InterruptedException {
 
-        @Override
-        public void run() {
+		long patience = 1;
 
-            String importantInfo[] = {
-                    "Mares eat oats",
-                    "Does eat oats",
-                    "Little lambs eat ivy",
-                    "A kid will eat ivy too"
-            };
-            try {
-                for (int i = 0;
-                     i < importantInfo.length;
-                     i++) {
-                    // Pause for 4 seconds
-                    Thread.sleep(4000);
-                    // Print a message
-                    printMessage(importantInfo[i]);
-                }
-            } catch (InterruptedException e) {
-                printMessage("I wasn't done!");
-            }
-        }
-    }
+		printMessage("Starting MessageLoop thread");
+		long startTime = System.currentTimeMillis();
+		Thread t = new Thread(new MessageLoop());
+		t.start();
 
-    public static void main(String[] args) throws InterruptedException{
+		printMessage("Waiting for MessageLoop thread to finish");
+		// loop until MessageLoop
+		// thread exits
+		while (t.isAlive()) {
+			printMessage("Still waiting...");
+			// Wait maximum of 1 second
+			// for MessageLoop thread
+			// to finish.
+			t.join(1000);
+			if (((System.currentTimeMillis() - startTime) > patience)
+					&& t.isAlive()) {
+				printMessage("Tired of waiting!");
+				t.interrupt();
+				// Shouldn't be long now
+				// -- wait indefinitely
+				t.join();
+			}
+		}
+		printMessage("Finally!");
+	}
 
-        long patience = 1;
+	private static class MessageLoop implements Runnable {
 
-        printMessage("Starting MessageLoop thread");
-        long startTime = System.currentTimeMillis();
-        Thread t = new Thread(new MessageLoop());
-        t.start();
+		@Override
+		public void run() {
 
-        printMessage("Waiting for MessageLoop thread to finish");
-        // loop until MessageLoop
-        // thread exits
-        while (t.isAlive()) {
-            printMessage("Still waiting...");
-            // Wait maximum of 1 second
-            // for MessageLoop thread
-            // to finish.
-            t.join(1000);
-            if (((System.currentTimeMillis() - startTime) > patience)
-                    && t.isAlive()) {
-                printMessage("Tired of waiting!");
-                t.interrupt();
-                // Shouldn't be long now
-                // -- wait indefinitely
-                t.join();
-            }
-        }
-        printMessage("Finally!");
-    }
+			String importantInfo[] = {
+					"Mares eat oats",
+					"Does eat oats",
+					"Little lambs eat ivy",
+					"A kid will eat ivy too"
+			};
+			try {
+				for (int i = 0; i < importantInfo.length; i++) {
+					// Pause for 4 seconds
+					Thread.sleep(4000);
+					// Print a message
+					printMessage(importantInfo[i]);
+				}
+			} catch (InterruptedException e) {
+				printMessage("I wasn't done!");
+			}
+		}
+	}
 }

@@ -1,7 +1,8 @@
 package com.example.message.impl;
 
-import com.example.message.MessageProvider;
 import org.springframework.stereotype.Service;
+
+import com.example.message.MessageProvider;
 
 /**
  * Created by krishna_hotha on 3/25/15.

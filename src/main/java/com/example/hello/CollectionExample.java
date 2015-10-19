@@ -18,6 +18,34 @@ public class CollectionExample {
 	private Set set;
 	private List list;
 
+	public static void main(String[] args) {
+
+		ApplicationContext context = new ClassPathXmlApplicationContext("spring-collection.xml");
+		CollectionExample ce = (CollectionExample) context.getBean("collectionExample");
+		displayInfo(ce);
+
+	}
+
+	public static void displayInfo(CollectionExample collectionExample) {
+
+		System.out.println("Printing the Map values");
+
+		for (Map.Entry<String, Object> entry : collectionExample.getStringObjectMap().entrySet()) {
+
+			System.out.println("Entry " + entry.getValue() + " " + entry.getKey());
+		}
+		for (Map.Entry<Object, Object> entry : collectionExample.getProps().entrySet()) {
+
+			System.out.println("Entry " + entry.getValue() + " " + entry.getKey());
+		}
+		for (Object object : collectionExample.getList()) {
+			System.out.println(object.toString());
+		}
+		for (Object object : collectionExample.getSet()) {
+			System.out.println(object.toString());
+		}
+	}
+
 	public Map<String, Object> getStringObjectMap() {
 		return stringObjectMap;
 	}
@@ -48,33 +76,5 @@ public class CollectionExample {
 
 	public void setList(List list) {
 		this.list = list;
-	}
-
-	public static void main(String[] args) {
-
-		ApplicationContext context = new ClassPathXmlApplicationContext("spring-collection.xml");
-		CollectionExample ce = (CollectionExample) context.getBean("collectionExample");
-		displayInfo(ce);
-
-	}
-
-	public static void displayInfo(CollectionExample collectionExample) {
-
-		System.out.println("Printing the Map values");
-
-		for (Map.Entry<String, Object> entry : collectionExample.getStringObjectMap().entrySet()) {
-
-			System.out.println("Entry " + entry.getValue() + " " + entry.getKey());
-		}
-		for (Map.Entry<Object, Object> entry : collectionExample.getProps().entrySet()) {
-
-			System.out.println("Entry " + entry.getValue() + " " + entry.getKey());
-		}
-		for (Object object : collectionExample.getList()) {
-			System.out.println(object.toString());
-		}
-		for (Object object : collectionExample.getSet()) {
-			System.out.println(object.toString());
-		}
 	}
 }

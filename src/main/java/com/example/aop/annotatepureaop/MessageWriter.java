@@ -5,14 +5,13 @@ package com.example.aop.annotatepureaop;
  */
 public class MessageWriter {
 
+	public void writeMessage() {
+		System.out.println("write message");
+	}
 
-    public void writeMessage(){
-        System.out.println("write message");
-    }
+	public void foo() {
 
-    public void foo(){
-
-        System.out.println("this is foo ddd");
-    }
+		System.out.println("this is foo ddd");
+	}
 
 }

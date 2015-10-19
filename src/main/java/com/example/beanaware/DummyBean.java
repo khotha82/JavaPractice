@@ -1,47 +1,44 @@
 package com.example.beanaware;
 
-import org.springframework.context.support.GenericXmlApplicationContext;
-
 import javax.annotation.PreDestroy;
+
+import org.springframework.context.support.GenericXmlApplicationContext;
 
 /**
  * Created by krishna_hotha on 4/16/15.
  */
 public class DummyBean {
 
-    private String name;
+	private String name;
 
-    public DummyBean() {
+	public DummyBean() {
 
-        System.out.println("no dummy");
-    }
+		System.out.println("no dummy");
+	}
 
-    public String getName() {
-        return name;
-    }
+	public static void main(String[] args) {
 
-    public void setName(String name) {
-        this.name = name;
-    }
+		GenericXmlApplicationContext context = new GenericXmlApplicationContext("spring-beanaware.xml");
 
-    @PreDestroy
-    public void destroyMethod(){
+		BeanNameAwareCheck bw = (BeanNameAwareCheck) context.getBean("beanNameCheck");
+		bw.someOperation();
 
-        System.out.println("calling before destory method");
-    }
+		DummyBean dw = (DummyBean) context.getBean("dummyBean");
+		System.out.println(dw);
 
-    public static void main(String[] args) {
+	}
 
-        GenericXmlApplicationContext context = new GenericXmlApplicationContext("spring-beanaware.xml");
+	public String getName() {
+		return name;
+	}
 
+	public void setName(String name) {
+		this.name = name;
+	}
 
-        BeanNameAwareCheck bw=(BeanNameAwareCheck)context.getBean("beanNameCheck");
-        bw.someOperation();
+	@PreDestroy
+	public void destroyMethod() {
 
-        DummyBean dw=(DummyBean)context.getBean("dummyBean");
-        System.out.println(dw);
-
-
-
-    }
+		System.out.println("calling before destory method");
+	}
 }

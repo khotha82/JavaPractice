@@ -5,12 +5,12 @@ package com.example.aop;
  */
 public class MessageWriter {
 
-    public void print(){
+	public void print() {
 
-        System.out.println("world");
-    }
+		System.out.println("world");
+	}
 
-    public void printName(){
-        System.out.println("Second Print");
-    }
+	public void printName() {
+		System.out.println("Second Print");
+	}
 }

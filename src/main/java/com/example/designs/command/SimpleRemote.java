@@ -14,7 +14,7 @@ public class SimpleRemote {
 	public void setCommand(Command command) {
 
 		this.command = command;
-        command.execute();
+		command.execute();
 	}
 
 	public void pressButton() {

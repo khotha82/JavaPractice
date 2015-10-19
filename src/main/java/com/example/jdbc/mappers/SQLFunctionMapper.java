@@ -1,12 +1,12 @@
 package com.example.jdbc.mappers;
 
+import java.math.BigDecimal;
+import java.sql.Types;
+
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.SqlParameter;
 import org.springframework.jdbc.object.SqlFunction;
-
-import java.math.BigDecimal;
-import java.sql.Types;
 
 /**
  * Created by krishna_hotha on 5/4/15 2015.
@@ -17,9 +17,9 @@ public class SQLFunctionMapper extends SqlFunction<BigDecimal> {
 
 	public SQLFunctionMapper(DataSource dataSource) {
 
-        super(dataSource,query);
-        declareParameter(new SqlParameter(Types.INTEGER));
-        declareParameter(new SqlParameter(Types.INTEGER));
-        compile();
+		super(dataSource, query);
+		declareParameter(new SqlParameter(Types.INTEGER));
+		declareParameter(new SqlParameter(Types.INTEGER));
+		compile();
 	}
 }

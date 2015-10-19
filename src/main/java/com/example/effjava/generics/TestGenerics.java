@@ -1,6 +1,5 @@
 package com.example.effjava.generics;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -8,24 +7,22 @@ import java.util.List;
  */
 public class TestGenerics {
 
+	public static void main(String[] args) {
 
-    public static void main(String[] args) {
+		// List<String>list=new ArrayList<>();
+		// List<Object>listObjects=new ArrayList<Long>();
+		// list.add("krishna");
+		// print(list);
+		// List<?>anotherList=list;
+		// anotherList.add("rama");
+	}
 
+	public static void print(List<?> list) {
 
-//        List<String>list=new ArrayList<>();
-//        List<Object>listObjects=new ArrayList<Long>();
-//        list.add("krishna");
-//        print(list);
-//        List<?>anotherList=list;
-//        anotherList.add("rama");
-    }
-
-    public static void print(List<?>list){
-
-//        for(Object object:list){
-//            System.out.println(object);
-//        }
-//        list.add(10);
-    }
+		// for(Object object:list){
+		// System.out.println(object);
+		// }
+		// list.add(10);
+	}
 
 }

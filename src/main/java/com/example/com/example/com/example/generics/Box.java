@@ -22,15 +22,14 @@ public class Box<T> {
 		b.setId("Hohta");
 		b1.setId(10);
 
-       Serializable s= b1.pick("d", new ArrayList<String>());
-        System.out.println(s);
+		Serializable s = b1.pick("d", new ArrayList<String>());
+		System.out.println(s);
 
-        List<Integer>numbers=new ArrayList<>();
-        numbers.add(new Integer(10));
-        numbers.add(new Integer(29));
+		List<Integer> numbers = new ArrayList<>();
+		numbers.add(new Integer(10));
+		numbers.add(new Integer(29));
 
-
-		System.out.println(b.getId() + "" + b1.getId()+" "+ b.sum(numbers));
+		System.out.println(b.getId() + "" + b1.getId() + " " + b.sum(numbers));
 	}
 
 	public T getId() {

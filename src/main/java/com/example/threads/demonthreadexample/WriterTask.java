@@ -23,8 +23,8 @@ public class WriterTask implements Runnable {
 			Event event = new Event();
 			event.setDate(new Date());
 			event.setEventType("My event");
-            System.out.println("creating event");
-            eventDeque.addFirst(event);
+			System.out.println("creating event");
+			eventDeque.addFirst(event);
 
 			try {
 				TimeUnit.SECONDS.sleep(1);

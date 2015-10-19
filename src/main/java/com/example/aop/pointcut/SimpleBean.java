@@ -15,8 +15,8 @@ public class SimpleBean {
 		System.out.println("this is for bar method");
 	}
 
-	public void foo(int n){
+	public void foo(int n) {
 
-		System.out.println("calling n with the following"+n);
+		System.out.println("calling n with the following" + n);
 	}
 }

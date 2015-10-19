@@ -7,56 +7,56 @@ import org.apache.commons.lang.builder.ToStringBuilder;
  */
 public class Circle implements Shape {
 
-    private String color;
-    private int x;
-    private int y;
-    private int radius;
+	private String color;
+	private int x;
+	private int y;
+	private int radius;
 
-    public Circle(String color) {
-        this.color = color;
-    }
+	public Circle(String color) {
+		this.color = color;
+	}
 
-    public String getColor() {
-        return color;
-    }
+	public String getColor() {
+		return color;
+	}
 
-    public void setColor(String color) {
-        this.color = color;
-    }
+	public void setColor(String color) {
+		this.color = color;
+	}
 
-    public int getX() {
-        return x;
-    }
+	public int getX() {
+		return x;
+	}
 
-    public void setX(int x) {
-        this.x = x;
-    }
+	public void setX(int x) {
+		this.x = x;
+	}
 
-    public int getY() {
-        return y;
-    }
+	public int getY() {
+		return y;
+	}
 
-    public void setY(int y) {
-        this.y = y;
-    }
+	public void setY(int y) {
+		this.y = y;
+	}
 
-    public int getRadius() {
-        return radius;
-    }
+	public int getRadius() {
+		return radius;
+	}
 
-    public void setRadius(int radius) {
-        this.radius = radius;
-    }
+	public void setRadius(int radius) {
+		this.radius = radius;
+	}
 
-    @Override
-    public void draw() {
+	@Override
+	public void draw() {
 
-     //  System.out.println("Circle draw"+this);
-    }
+		// System.out.println("Circle draw"+this);
+	}
 
-    @Override
-    public String toString() {
+	@Override
+	public String toString() {
 
-        return ToStringBuilder.reflectionToString(this);
-    }
+		return ToStringBuilder.reflectionToString(this);
+	}
 }

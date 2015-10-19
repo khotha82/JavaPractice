@@ -1,20 +1,19 @@
 package com.example.effjava.chapter2;
 
-import org.apache.commons.lang.builder.ToStringBuilder;
-
 import java.util.HashMap;
 import java.util.Map;
+
+import org.apache.commons.lang.builder.ToStringBuilder;
 
 /**
  * Created by krishna_hotha on 6/29/15 2015.
  */
-public class PhoneNumberTest implements  Cloneable{
+public class PhoneNumberTest implements Cloneable {
 
 	private final short areaCode;
 	private final short prefix;
 	private final short lineNumber;
-    private String string;
-
+	private String string;
 
 	public PhoneNumberTest(int areaCode, int prefix,
 			int lineNumber) {
@@ -33,6 +32,25 @@ public class PhoneNumberTest implements  Cloneable{
 			throw new IllegalArgumentException(name + ": " + arg);
 	}
 
+	public static void main(String[] args) throws CloneNotSupportedException {
+
+		Map<PhoneNumberTest, String> m = new HashMap<PhoneNumberTest, String>();
+		m.put(new PhoneNumberTest(707, 867, 5309), "Jenny");
+
+		System.out.println(m.get(new PhoneNumberTest(707, 867, 5309)));
+
+		int a = 11;
+		int b = 10;
+		int c = a ^ b;
+
+		long f = 10;
+
+		int i = (int) (f ^ (f >>> 32));
+		System.out.println(Integer.toBinaryString(a << 2));
+		System.out.println(i);
+
+	}
+
 	@Override
 	public boolean equals(Object o) {
 		if (o == this)
@@ -46,34 +64,14 @@ public class PhoneNumberTest implements  Cloneable{
 	}
 
 	@Override
-	public String toString(){
-	  return	ToStringBuilder.reflectionToString(this);
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this);
 	}
-    @Override
-    public int hashCode() {
 
+	@Override
+	public int hashCode() {
 
-        return this.lineNumber+this.areaCode+this.prefix;
-    }
-
-    public static void main(String[] args) throws CloneNotSupportedException {
-
-       Map<PhoneNumberTest, String> m
-               = new HashMap<PhoneNumberTest, String>();
-        m.put(new PhoneNumberTest(707, 867, 5309), "Jenny");
-
-        System.out.println(m.get(new PhoneNumberTest(707, 867, 5309)));
-
-		int a=11;
-		int b=10;
-		int c=a^b;
-
-		long f=10;
-
-		int i=(int)(f^(f>>>32));
-		System.out.println(Integer.toBinaryString(a<<2));
-		System.out.println(i);
-
+		return this.lineNumber + this.areaCode + this.prefix;
 	}
 
 }

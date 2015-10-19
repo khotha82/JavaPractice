@@ -9,12 +9,12 @@ import com.example.effjava.enumtest.DriverManager;
 
 public class StaticExample {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-        Operation operation=new Operation();
-        Operation operation1=operation.typeOperation("Krishna");
-        operation1.operate();
-        DriverManager.INSTANCE.print();
+		Operation operation = new Operation();
+		Operation operation1 = operation.typeOperation("Krishna");
+		operation1.operate();
+		DriverManager.INSTANCE.print();
 
-    }
+	}
 }

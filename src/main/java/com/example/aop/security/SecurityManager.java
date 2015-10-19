@@ -5,18 +5,19 @@ package com.example.aop.security;
  */
 public class SecurityManager {
 
-    private static ThreadLocal<UserInfo>userInfoThreadLocal =new ThreadLocal<>();
+	private static ThreadLocal<UserInfo> userInfoThreadLocal = new ThreadLocal<>();
 
-    public void login(String userName, String password){
+	public void login(String userName, String password) {
 
-        userInfoThreadLocal.set(new UserInfo(userName,password));
-    }
-    public void logout(){
-        userInfoThreadLocal.set(null);
-    }
+		userInfoThreadLocal.set(new UserInfo(userName, password));
+	}
 
-    public UserInfo getUser(){
+	public void logout() {
+		userInfoThreadLocal.set(null);
+	}
 
-        return userInfoThreadLocal.get();
-    }
+	public UserInfo getUser() {
+
+		return userInfoThreadLocal.get();
+	}
 }

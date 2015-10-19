@@ -10,23 +10,20 @@ import java.util.stream.Stream;
  */
 public class TestClousers {
 
-    private Integer b=2;
+	private Integer b = 2;
 
+	private static Stream calculate(Stream stream, Integer a) {
 
-    private static Stream calculate(Stream stream,Integer a){
+		Function<Integer, Integer> testFunction = (t) -> {
+			return t * a;
+		};
 
-        Function<Integer,Integer>testFunction=(t)->{
-            return t*a;
-        };
+		return stream.map(testFunction);
 
-        return stream.map(testFunction);
+	}
 
-    }
+	public static void main(String[] args) {
+		List list = Arrays.asList(1, 2, 3, 4, 5, 6);
 
-    public static void main(String[] args) {
-        List list= Arrays.asList(1,2,3,4,5,6);
-
-
-
-    }
+	}
 }

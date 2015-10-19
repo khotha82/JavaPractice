@@ -1,6 +1,5 @@
 package com.example.hello;
 
-import com.example.message.MessageRenderer;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -9,23 +8,23 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class ConstructorConfusion {
 
-    private String someValue;
+	private String someValue;
 
-    public ConstructorConfusion(String someValue) {
-        this.someValue = someValue;
-        System.out.println("in string method");
-    }
+	public ConstructorConfusion(String someValue) {
+		this.someValue = someValue;
+		System.out.println("in string method");
+	}
 
-    public ConstructorConfusion(int someValue) {
+	public ConstructorConfusion(int someValue) {
 
-        this.someValue=Integer.toString(someValue);
-        System.out.println("in integer method");
-    }
+		this.someValue = Integer.toString(someValue);
+		System.out.println("in integer method");
+	}
 
-    public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
+	public static void main(String[] args) {
+		ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
 
-       ConstructorConfusion constructorConfusion=(ConstructorConfusion)context.getBean("constructorConfusion");
+		ConstructorConfusion constructorConfusion = (ConstructorConfusion) context.getBean("constructorConfusion");
 
-    }
+	}
 }

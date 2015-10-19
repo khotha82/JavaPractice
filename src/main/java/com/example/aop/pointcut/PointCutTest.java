@@ -10,23 +10,22 @@ import org.springframework.aop.support.NameMatchMethodPointcut;
  */
 public class PointCutTest {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-        NameMatchMethodPointcut pointcut=new NameMatchMethodPointcut();
-        pointcut.addMethodName("foo");
+		NameMatchMethodPointcut pointcut = new NameMatchMethodPointcut();
+		pointcut.addMethodName("foo");
 
-        ProxyFactory proxyFactory=new ProxyFactory();
-        SimpleBean simpleBean=new SimpleBean();
-        SimpleBeanAdvice beanAdvice=new SimpleBeanAdvice();
+		ProxyFactory proxyFactory = new ProxyFactory();
+		SimpleBean simpleBean = new SimpleBean();
+		SimpleBeanAdvice beanAdvice = new SimpleBeanAdvice();
 
-        Advisor advisor=new DefaultPointcutAdvisor(pointcut,beanAdvice);
-        proxyFactory.addAdvisor(advisor);
-        proxyFactory.setTarget(simpleBean);
+		Advisor advisor = new DefaultPointcutAdvisor(pointcut, beanAdvice);
+		proxyFactory.addAdvisor(advisor);
+		proxyFactory.setTarget(simpleBean);
 
-        SimpleBean simpleBean1=(SimpleBean)proxyFactory.getProxy();
-        simpleBean1.foo();
-        simpleBean1.bar();
-    }
-
+		SimpleBean simpleBean1 = (SimpleBean) proxyFactory.getProxy();
+		simpleBean1.foo();
+		simpleBean1.bar();
+	}
 
 }

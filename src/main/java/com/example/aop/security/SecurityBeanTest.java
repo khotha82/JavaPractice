@@ -12,19 +12,19 @@ public class SecurityBeanTest {
 		SecurityManager scm = new SecurityManager();
 		scm.login("krishna", "123456");
 
-        SecurityBean securityBean=getBean();
-        securityBean.writeSecureMessage();
+		SecurityBean securityBean = getBean();
+		securityBean.writeSecureMessage();
 
 	}
 
 	public static SecurityBean getBean() {
 
 		SecurityBean securityBean = new SecurityBean();
-        SecurityAdvice securityAdvice=new SecurityAdvice();
-        ProxyFactory proxyFactory=new ProxyFactory();
-        proxyFactory.addAdvice(securityAdvice);
-        proxyFactory.setTarget(securityBean);
+		SecurityAdvice securityAdvice = new SecurityAdvice();
+		ProxyFactory proxyFactory = new ProxyFactory();
+		proxyFactory.addAdvice(securityAdvice);
+		proxyFactory.setTarget(securityBean);
 
-        return (SecurityBean)proxyFactory.getProxy();
+		return (SecurityBean) proxyFactory.getProxy();
 	}
 }

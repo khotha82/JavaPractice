@@ -1,77 +1,76 @@
 package com.example.beancontext;
 
-import groovy.ui.SystemOutputInterceptor;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
-
 /**
  * Created by krishna_hotha on 4/14/15.
  */
-public class BeanCheckWithInterface implements InitializingBean,DisposableBean{
+public class BeanCheckWithInterface implements InitializingBean, DisposableBean {
 
-    private  String name;
-    private  String age;
+	private String name;
+	private String age;
 
+	public static void main(String[] args) {
 
-    public String getAge() {
-        return age;
-    }
+		ApplicationContext context = new ClassPathXmlApplicationContext("spring-context.xml");
 
-    public void setAge(String age) {
-        this.age = age;
-    }
+		BeanCheckWithInterface sb = (BeanCheckWithInterface) context.getBean("simple1");
+		System.out.println(sb.getAge());
+		System.out.println(sb.getName());
 
-    public String getName() {
-        return name;
-    }
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public String getAge() {
+		return age;
+	}
 
-    public static void main(String[] args) {
+	public void setAge(String age) {
+		this.age = age;
+	}
 
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring-context.xml");
+	public String getName() {
+		return name;
+	}
 
-        BeanCheckWithInterface sb=(BeanCheckWithInterface)context.getBean("simple1");
-        System.out.println(sb.getAge());
-        System.out.println(sb.getName());
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    }
+	public void beanInitMethod() {
+		System.out.println("in bean new init method");
+	}
 
-    public void beanInitMethod(){
-        System.out.println("in bean new init method");
-    }
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		System.out.println("Calling after properties ");
+	}
 
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        System.out.println("Calling after properties ");
-    }
+	@PostConstruct
+	public void init() {
 
-    @PostConstruct
-    public void init(){
+		System.out.println("this is post construct");
+	}
 
-        System.out.println("this is post construct");
-    }
+	public void destroyMyBean() {
 
-    public void destroyMyBean(){
+		System.out.println("this is in destroy my bean method");
+	}
 
-        System.out.println("this is in destroy my bean method");
-    }
-    @Override
-    public void destroy() throws Exception {
+	@Override
+	public void destroy() throws Exception {
 
-        System.out.println("int destroy methodddd");
-    }
+		System.out.println("int destroy methodddd");
+	}
 
-    @PreDestroy
-    public void killMe(){
+	@PreDestroy
+	public void killMe() {
 
-        System.out.println("killing method");
-    }
+		System.out.println("killing method");
+	}
 }

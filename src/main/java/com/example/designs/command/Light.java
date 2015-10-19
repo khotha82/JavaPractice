@@ -5,14 +5,13 @@ package com.example.designs.command;
  */
 public class Light {
 
+	public void on() {
 
-    public void on(){
+		System.out.println("switching on the light");
+	}
 
-        System.out.println("switching on the light");
-    }
+	public void off() {
 
-    public void off(){
-
-        System.out.println("off");
-    }
+		System.out.println("off");
+	}
 }

@@ -5,12 +5,11 @@ import java.util.function.Function;
 /**
  * Created by krishna_hotha on 4/20/15.
  */
-public class CustomFunction  {
+public class CustomFunction {
 
+	public static void main(String[] args) {
 
-    public static void main(String[] args) {
-
-       Function<String,Integer>checkLength=(s)->s.length();
-        System.out.println(checkLength.apply("krishna"));
-    }
+		Function<String, Integer> checkLength = (s) -> s.length();
+		System.out.println(checkLength.apply("krishna"));
+	}
 }

@@ -11,42 +11,40 @@ import org.springframework.stereotype.Component;
 @Component("a")
 public class A {
 
+	private B b;
 
-    private B b;
+	private C c;
 
+	public A() {
+		System.out.println("Creating instance A");
+	}
 
-    private C c;
+	public static void main(String[] args) {
 
-    public A() {
-        System.out.println("Creating instance A");
-    }
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring-annotation-different.xml");
+		A a = (A) applicationContext.getBean("a");
+		System.out.println(a);
 
-    public B getB() {
-        System.out.println("getting b");
-        return b;
-    }
+	}
 
-    @Autowired
-    public void setB(B b) {
-        System.out.println("setting B");
-        this.b = b;
-    }
+	public B getB() {
+		System.out.println("getting b");
+		return b;
+	}
 
-    public C getC() {
-        return c;
-    }
+	@Autowired
+	public void setB(B b) {
+		System.out.println("setting B");
+		this.b = b;
+	}
 
-    @Autowired
-    public void setC(C c) {
-        System.out.println("setting c");
-        this.c = c;
-    }
+	public C getC() {
+		return c;
+	}
 
-    public static void main(String[] args) {
-
-        ApplicationContext applicationContext=new ClassPathXmlApplicationContext("spring-annotation-different.xml");
-        A a=(A)applicationContext.getBean("a");
-        System.out.println(a);
-
-    }
+	@Autowired
+	public void setC(C c) {
+		System.out.println("setting c");
+		this.c = c;
+	}
 }

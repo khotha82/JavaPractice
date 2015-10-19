@@ -1,36 +1,36 @@
 package com.example.propertyeditor.convertors;
 
+import javax.annotation.PostConstruct;
+
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 import org.springframework.core.convert.converter.Converter;
 
-import javax.annotation.PostConstruct;
-
 /**
  * Created by krishna_hotha on 5/6/15 2015.
  */
-public class StringToDateConvertor implements Converter<String,DateTime> {
+public class StringToDateConvertor implements Converter<String, DateTime> {
 
-    private DateTimeFormatter dateTimeFormatter;
-    private String dateFormat ="yyyy-MM-dddd";
+	private DateTimeFormatter dateTimeFormatter;
+	private String dateFormat = "yyyy-MM-dddd";
 
-    @PostConstruct
-    public void setDateTimeFormatter(){
+	@PostConstruct
+	public void setDateTimeFormatter() {
 
-        dateTimeFormatter= DateTimeFormat.forPattern(dateFormat);
-    }
+		dateTimeFormatter = DateTimeFormat.forPattern(dateFormat);
+	}
 
-    public String getDateFormat() {
-        return dateFormat;
-    }
+	public String getDateFormat() {
+		return dateFormat;
+	}
 
-    public void setDateFormat(String dateFormat) {
-        this.dateFormat = dateFormat;
-    }
+	public void setDateFormat(String dateFormat) {
+		this.dateFormat = dateFormat;
+	}
 
-    @Override
-    public DateTime convert(String s) {
-        return DateTime.parse(s,dateTimeFormatter);
-    }
+	@Override
+	public DateTime convert(String s) {
+		return DateTime.parse(s, dateTimeFormatter);
+	}
 }

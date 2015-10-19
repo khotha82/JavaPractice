@@ -7,15 +7,15 @@ import java.util.concurrent.TimeUnit;
  */
 public class NetWorkConfiguration implements Runnable {
 
-    @Override
-    public void run() {
+	@Override
+	public void run() {
 
-        System.out.println("Starting the network method");
-        try {
-            TimeUnit.SECONDS.sleep(4000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        System.out.println("Ending the network method ");
-    }
+		System.out.println("Starting the network method");
+		try {
+			TimeUnit.SECONDS.sleep(4000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println("Ending the network method ");
+	}
 }

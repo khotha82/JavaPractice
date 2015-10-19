@@ -10,44 +10,44 @@ public class TestStatic {
 	private String firstname;
 	private String lastName;
 
-    public TestStatic(String firstname, String lastName) {
-        this.firstname = firstname;
-        this.lastName = lastName;
-    }
+	public TestStatic(String firstname, String lastName) {
+		this.firstname = firstname;
+		this.lastName = lastName;
+	}
 
-    private  class PrintName{
+	public static void main(String[] args) {
 
-         void print(){
-            System.out.println(firstname+" "+lastName);
-        }
+		TestStatic testStatic = new TestStatic("Krishna", "Hotha");
 
-        String fullName(){
-            return firstname+" "+lastName;
-        }
-    }
+		testStatic.getPrintName().print();
 
-    public PrintName getPrintName(){
+		System.out.println(testStatic.getComparator().compare(testStatic, testStatic));
+	}
 
-        return new PrintName();
-    }
+	public PrintName getPrintName() {
 
-    public Comparator<TestStatic> getComparator(){
+		return new PrintName();
+	}
 
-        return new Comparator<TestStatic>() {
-            @Override
-            public int compare(TestStatic o1, TestStatic o2) {
+	public Comparator<TestStatic> getComparator() {
 
-                return o1.getPrintName().fullName().compareTo(o2.getPrintName().fullName());
-            }
-        };
-    }
+		return new Comparator<TestStatic>() {
+			@Override
+			public int compare(TestStatic o1, TestStatic o2) {
 
-    public static void main(String[] args) {
+				return o1.getPrintName().fullName().compareTo(o2.getPrintName().fullName());
+			}
+		};
+	}
 
-        TestStatic testStatic=new TestStatic("Krishna","Hotha");
+	private class PrintName {
 
-       testStatic.getPrintName().print();
+		void print() {
+			System.out.println(firstname + " " + lastName);
+		}
 
-        System.out.println(testStatic.getComparator().compare(testStatic,testStatic));
-    }
+		String fullName() {
+			return firstname + " " + lastName;
+		}
+	}
 }
