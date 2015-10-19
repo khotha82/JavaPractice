@@ -7,12 +7,11 @@ import java.beans.PropertyEditorSupport;
  */
 public class NameEditor extends PropertyEditorSupport {
 
+	@Override
+	public void setAsText(String text) throws IllegalArgumentException {
 
-    @Override
-    public void setAsText(String text) throws IllegalArgumentException {
-
-            System.out.println("setting the value");
-            String [] s=text.split(" ");
-            setValue(new Name(s[0],s[1]));
-    }
+		System.out.println("setting the value");
+		String[] s = text.split(" ");
+		setValue(new Name(s[0], s[1]));
+	}
 }

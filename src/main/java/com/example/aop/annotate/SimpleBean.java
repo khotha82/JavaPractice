@@ -8,14 +8,15 @@ import org.springframework.stereotype.Component;
 @Component("simpleBean")
 public class SimpleBean {
 
-    public SimpleBean() {
-    }
+	public SimpleBean() {
+	}
 
-    public void foo(){
-        System.out.println("this is foo");
-    }
-    public void bar(){
+	public void foo() {
+		System.out.println("this is foo");
+	}
 
-        System.out.println("this is bar");
-    }
+	public void bar() {
+
+		System.out.println("this is bar");
+	}
 }

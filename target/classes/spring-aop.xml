@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:property="http://www.springframework.org/schema/p"
-       xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean  id="myBean" class="com.example.aop.config.MyBean">
+    <bean id="myBean" class="com.example.aop.config.MyBean">
         <property name="dependency">
             <ref bean="myDependency1"></ref>
         </property>
 
     </bean>
 
-    <bean  id="myBean1" class="com.example.aop.config.MyBean">
+    <bean id="myBean1" class="com.example.aop.config.MyBean">
         <property name="dependency">
             <ref bean="myDependency2"></ref>
         </property>
@@ -50,9 +49,9 @@
         </property>
         <property name="pointcut">
             <bean class="org.springframework.aop.aspectj.AspectJExpressionPointcut">
-                    <property name="expression">
-                        <value>execution(* foo*(..))</value>
-                    </property>
+                <property name="expression">
+                    <value>execution(* foo*(..))</value>
+                </property>
             </bean>
         </property>
     </bean>

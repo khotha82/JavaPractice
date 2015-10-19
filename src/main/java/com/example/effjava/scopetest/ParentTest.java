@@ -5,16 +5,16 @@ package com.example.effjava.scopetest;
  */
 public abstract class ParentTest {
 
-    public abstract void printMe();
+	public static ParentTest getParent(String s) {
 
-    public static ParentTest getParent(String s){
+		if (s.equalsIgnoreCase("child1")) {
+			return new SubClass();
+		}
+		else {
+			return new SubClass2();
+		}
+	}
 
-        if(s.equalsIgnoreCase("child1")){
-            return new SubClass();
-        }
-        else{
-            return new SubClass2();
-        }
-    }
+	public abstract void printMe();
 
 }

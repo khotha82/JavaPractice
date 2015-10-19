@@ -1,6 +1,5 @@
 package com.example.hello;
 
-import com.example.message.MessageRenderer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.support.GenericXmlApplicationContext;
 import org.springframework.stereotype.Service;
@@ -12,28 +11,27 @@ import org.springframework.stereotype.Service;
 @Service("injectSimple")
 public class InjectSimple {
 
-    @Value("hotha")
-    private String name;
+	@Value("hotha")
+	private String name;
 
-    @Value("16")
-    private String age;
+	@Value("16")
+	private String age;
 
+	public static void main(String[] args) {
 
-    public static void main(String[] args) {
+		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
+		ctx.load("spring-config-annotations.xml");
+		ctx.refresh();
 
-        GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
-        ctx.load("spring-config-annotations.xml");
-        ctx.refresh();
+		InjectSimple messageRenderer = (InjectSimple) ctx.getBean("injectSimple");
 
-        InjectSimple messageRenderer=(InjectSimple)ctx.getBean("injectSimple");
+		System.out.println(messageRenderer.toString());
 
-        System.out.println(messageRenderer.toString());
+	}
 
-    }
+	@Override
+	public String toString() {
 
-    @Override
-    public String toString() {
-
-        return name+" "+age;
-    }
+		return name + " " + age;
+	}
 }

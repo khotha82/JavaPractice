@@ -7,12 +7,12 @@ import org.springframework.context.support.GenericXmlApplicationContext;
  */
 public class AopAnnotationTest {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-        GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
-        ctx.load("spring-aop-annotate.xml");
-        ctx.refresh();
-        SimpleBeanWrapper simpleBeanWrapper= (SimpleBeanWrapper) ctx.getBean("simpleBeanWrapper");
-        simpleBeanWrapper.execute();
-    }
+		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
+		ctx.load("spring-aop-annotate.xml");
+		ctx.refresh();
+		SimpleBeanWrapper simpleBeanWrapper = (SimpleBeanWrapper) ctx.getBean("simpleBeanWrapper");
+		simpleBeanWrapper.execute();
+	}
 }

@@ -5,21 +5,16 @@ package com.example.designs.builder;
  */
 public abstract class StarBuckBuilder {
 
-    protected StartBucks startBucks;
+	protected StartBucks startBucks;
 
-    public StartBucks getStartBucks() {
-        return startBucks;
-    }
+	public StartBucks getStartBucks() {
+		return startBucks;
+	}
 
-    public void setStartBucks(StartBucks startBucks) {
-        this.startBucks = startBucks;
-    }
+	public void setStartBucks(StartBucks startBucks) {
+		this.startBucks = startBucks;
+	}
 
-
-
-    protected  abstract void  build(DrinkPreference preference);
-
-
-
+	protected abstract void build(DrinkPreference preference);
 
 }

@@ -1,33 +1,33 @@
 package com.example.aop;
 
+import java.lang.reflect.Method;
+
 import org.springframework.aop.MethodBeforeAdvice;
 import org.springframework.aop.framework.ProxyFactory;
-
-import java.lang.reflect.Method;
 
 /**
  * Created by krishna_hotha on 4/21/15.
  */
-public class SimpleMethodBeforeTest implements MethodBeforeAdvice{
-    @Override
-    public void before(Method method, Object[] objects, Object o) throws Throwable {
+public class SimpleMethodBeforeTest implements MethodBeforeAdvice {
+	public static void main(String[] args) {
 
-        System.out.println("before calling this method");
-        System.out.println(method.getName());
+		MessageWriter messageWriter = new MessageWriter();
 
-    }
+		SimpleMethodBeforeTest simpleMethodBeforeTest = new SimpleMethodBeforeTest();
+		ProxyFactory pfs = new ProxyFactory();
+		pfs.setTarget(messageWriter);
+		pfs.addAdvice(simpleMethodBeforeTest);
 
-    public static void main(String[] args) {
+		MessageWriter messageWriter1 = (MessageWriter) pfs.getProxy();
+		messageWriter1.print();
+		messageWriter1.printName();
+	}
 
-        MessageWriter messageWriter=new MessageWriter();
+	@Override
+	public void before(Method method, Object[] objects, Object o) throws Throwable {
 
-        SimpleMethodBeforeTest simpleMethodBeforeTest=new SimpleMethodBeforeTest();
-        ProxyFactory pfs=new ProxyFactory();
-        pfs.setTarget(messageWriter);
-        pfs.addAdvice(simpleMethodBeforeTest);
+		System.out.println("before calling this method");
+		System.out.println(method.getName());
 
-        MessageWriter messageWriter1=(MessageWriter)pfs.getProxy();
-        messageWriter1.print();
-        messageWriter1.printName();
-    }
+	}
 }

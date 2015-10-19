@@ -5,49 +5,47 @@ package com.example.designs.builder;
  */
 public class DrinkPreference {
 
-    private String drinkName;
-    private Boolean sugar;
-    private Boolean milk;
+	private String drinkName;
+	private Boolean sugar;
+	private Boolean milk;
+	private String size;
 
-    public String getSize() {
-        return size;
-    }
+	public DrinkPreference(String drinkName, Boolean sugar, Boolean milk, String size) {
+		this.drinkName = drinkName;
+		this.sugar = sugar;
+		this.size = size;
+		this.milk = milk;
+	}
 
-    public void setSize(String size) {
-        this.size = size;
-    }
+	public String getSize() {
+		return size;
+	}
 
-    private String size;
+	public void setSize(String size) {
+		this.size = size;
+	}
 
+	public String getDrinkName() {
+		return drinkName;
+	}
 
-    public DrinkPreference(String drinkName, Boolean sugar, Boolean milk,String size) {
-        this.drinkName = drinkName;
-        this.sugar = sugar;
-        this.size=size;
-        this.milk = milk;
-    }
+	public void setDrinkName(String drinkName) {
+		this.drinkName = drinkName;
+	}
 
-    public String getDrinkName() {
-        return drinkName;
-    }
+	public Boolean getSugar() {
+		return sugar;
+	}
 
-    public void setDrinkName(String drinkName) {
-        this.drinkName = drinkName;
-    }
+	public void setSugar(Boolean sugar) {
+		this.sugar = sugar;
+	}
 
-    public Boolean getSugar() {
-        return sugar;
-    }
+	public Boolean getMilk() {
+		return milk;
+	}
 
-    public void setSugar(Boolean sugar) {
-        this.sugar = sugar;
-    }
-
-    public Boolean getMilk() {
-        return milk;
-    }
-
-    public void setMilk(Boolean milk) {
-        this.milk = milk;
-    }
+	public void setMilk(Boolean milk) {
+		this.milk = milk;
+	}
 }

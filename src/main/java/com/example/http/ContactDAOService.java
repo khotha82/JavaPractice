@@ -7,5 +7,5 @@ import com.example.domain.Contact;
  */
 public interface ContactDAOService {
 
-    public Contact getContactById(int id);
+	public Contact getContactById(int id);
 }

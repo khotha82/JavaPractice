@@ -27,8 +27,8 @@ public class ThreadExample implements Runnable {
 	@Override
 	public void run() {
 
-		while (unsafeSequence.getValue()<1000) {
-			System.out.println(Thread.currentThread()+" "+unsafeSequence.getValue());
+		while (unsafeSequence.getValue() < 1000) {
+			System.out.println(Thread.currentThread() + " " + unsafeSequence.getValue());
 		}
 	}
 }

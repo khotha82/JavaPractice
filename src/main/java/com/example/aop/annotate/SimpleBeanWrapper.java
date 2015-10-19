@@ -9,18 +9,19 @@ import org.springframework.stereotype.Component;
 @Component("simpleBeanWrapper")
 public class SimpleBeanWrapper {
 
-    @Autowired
-    private SimpleBean simpleBean;
+	@Autowired
+	private SimpleBean simpleBean;
 
-    public SimpleBean getSimpleBean() {
-        return simpleBean;
-    }
+	public SimpleBean getSimpleBean() {
+		return simpleBean;
+	}
 
-    public void setSimpleBean(SimpleBean simpleBean) {
-        this.simpleBean = simpleBean;
-    }
-    public void execute(){
+	public void setSimpleBean(SimpleBean simpleBean) {
+		this.simpleBean = simpleBean;
+	}
 
-        simpleBean.foo();
-    }
+	public void execute() {
+
+		simpleBean.foo();
+	}
 }

@@ -13,18 +13,18 @@ public class ControlFlowPointCutExample {
 
 		ControlFlowPointcut controlFlowPointcut = new ControlFlowPointcut(ControlFlowPointCutExample.class, "test");
 
-        ProxyFactory proxyFactory=new ProxyFactory();
-        proxyFactory.addAdvisor(new DefaultPointcutAdvisor(controlFlowPointcut, new SimpleAdvice()));
-	    proxyFactory.setTarget(new SimpleBean());
+		ProxyFactory proxyFactory = new ProxyFactory();
+		proxyFactory.addAdvisor(new DefaultPointcutAdvisor(controlFlowPointcut, new SimpleAdvice()));
+		proxyFactory.setTarget(new SimpleBean());
 
-        SimpleBean simpleBean=(SimpleBean)proxyFactory.getProxy();
-        simpleBean.print();
-        test(simpleBean);
-    }
+		SimpleBean simpleBean = (SimpleBean) proxyFactory.getProxy();
+		simpleBean.print();
+		test(simpleBean);
+	}
 
-    private static void test(SimpleBean simpleBean) {
+	private static void test(SimpleBean simpleBean) {
 
-        System.out.println("this is the test method");
-        simpleBean.print();
-    }
+		System.out.println("this is the test method");
+		simpleBean.print();
+	}
 }

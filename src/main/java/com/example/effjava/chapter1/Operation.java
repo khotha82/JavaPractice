@@ -3,42 +3,38 @@ package com.example.effjava.chapter1;
 /**
  * Created by krishna_hotha on 6/22/15 2015.
  */
-public  class Operation {
+public class Operation {
 
+	public Operation typeOperation(String name) {
 
+		if (name.equals("Krishna")) {
 
-    public Operation typeOperation(String name){
+			return new SmallOperation();
+		}
 
-        if(name.equals("Krishna")){
+		return new BigOperation();
 
+	}
 
-            return new SmallOperation();
-        }
+	public void operate() {
 
-        return new BigOperation();
-
-    }
-
-    public  void operate(){
-
-    }
+	}
 
 }
 
-class SmallOperation extends Operation{
+class SmallOperation extends Operation {
 
-
-    @Override
-    public void operate() {
-        System.out.println("small operation nothing to worry");
-    }
+	@Override
+	public void operate() {
+		System.out.println("small operation nothing to worry");
+	}
 }
 
-class BigOperation extends  Operation{
+class BigOperation extends Operation {
 
-    @Override
-    public void operate() {
-        System.out.println("big operation something to worry");
-    }
+	@Override
+	public void operate() {
+		System.out.println("big operation something to worry");
+	}
 
 }

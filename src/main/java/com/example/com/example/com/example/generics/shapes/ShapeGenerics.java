@@ -10,20 +10,20 @@ public class ShapeGenerics {
 
 	public static void main(String[] args) {
 
-        ShapeGenerics s=new ShapeGenerics();
+		ShapeGenerics s = new ShapeGenerics();
 
-        List<Shape> listShapes=new ArrayList<>();
-        listShapes.add(new Circle());
-        listShapes.add(new Rectangle());
+		List<Shape> listShapes = new ArrayList<>();
+		listShapes.add(new Circle());
+		listShapes.add(new Rectangle());
 
-        s.drawShape(listShapes);
+		s.drawShape(listShapes);
 
-        List<Circle> circleList=new ArrayList<>();
-        listShapes.add(new Circle());
-        listShapes.add(new Circle());
+		List<Circle> circleList = new ArrayList<>();
+		listShapes.add(new Circle());
+		listShapes.add(new Circle());
 
-        s.drawShape(circleList);
-    }
+		s.drawShape(circleList);
+	}
 
 	public void drawShape(List<? extends Shape> list) {
 

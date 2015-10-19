@@ -8,15 +8,14 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class AopSpringConfigTest {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring-aop-namespect-config.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("spring-aop-namespect-config.xml");
 
+		// MyBean myBean1=(MyBean)context.getBean("myBean");
+		// myBean1.execute();
 
-//        MyBean myBean1=(MyBean)context.getBean("myBean");
-//        myBean1.execute();
-
-        MyBean myBean2=(MyBean)context.getBean("myBean1");
-        myBean2.execute();
-    }
+		MyBean myBean2 = (MyBean) context.getBean("myBean1");
+		myBean2.execute();
+	}
 }

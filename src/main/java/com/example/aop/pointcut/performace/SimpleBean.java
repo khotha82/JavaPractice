@@ -5,7 +5,7 @@ package com.example.aop.pointcut.performace;
  */
 public interface SimpleBean {
 
+	public void advised();
 
-    public void advised();
-    public void unAdvised();
+	public void unAdvised();
 }

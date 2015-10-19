@@ -5,19 +5,18 @@ package com.example.threads.example.sleep;
  */
 public class SleepExample {
 
+	public static void main(String[] args) throws InterruptedException {
 
-    public static void main(String[] args) throws InterruptedException {
+		DataBaseConfiguration baseConfiguration = new DataBaseConfiguration();
+		NetWorkConfiguration netWorkConfiguration = new NetWorkConfiguration();
 
-        DataBaseConfiguration baseConfiguration=new DataBaseConfiguration();
-        NetWorkConfiguration netWorkConfiguration=new NetWorkConfiguration();
-
-        Thread dbConfigThread=new Thread(baseConfiguration);
-        Thread netConfigThread=new Thread(netWorkConfiguration);
-        dbConfigThread.start();
-        netConfigThread.start();
-        dbConfigThread.join();
-        netConfigThread.join();
-        System.out.println("Exiting Main Thread");
-    }
+		Thread dbConfigThread = new Thread(baseConfiguration);
+		Thread netConfigThread = new Thread(netWorkConfiguration);
+		dbConfigThread.start();
+		netConfigThread.start();
+		dbConfigThread.join();
+		netConfigThread.join();
+		System.out.println("Exiting Main Thread");
+	}
 
 }

@@ -5,14 +5,13 @@ package com.example.hello;
  */
 public class Employee {
 
-    protected int salary=5;
+	protected int salary = 5;
 
+	public int getSalary() {
+		return salary;
+	}
 
-    public int getSalary() {
-        return salary;
-    }
-
-    public void setSalary(int salary) {
-        this.salary = salary;
-    }
+	public void setSalary(int salary) {
+		this.salary = salary;
+	}
 }

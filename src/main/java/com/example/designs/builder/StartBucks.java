@@ -5,47 +5,47 @@ package com.example.designs.builder;
  */
 public class StartBucks {
 
-    private String drink;
-    private String size;
-    private String sugar;
-    private String milk;
+	private String drink;
+	private String size;
+	private String sugar;
+	private String milk;
 
-    public String getMilk() {
-        return milk;
-    }
+	public String getMilk() {
+		return milk;
+	}
 
-    public void setMilk(String milk) {
-        this.milk = milk;
-    }
+	public void setMilk(String milk) {
+		this.milk = milk;
+	}
 
-    public String getDrink() {
-        return drink;
-    }
+	public String getDrink() {
+		return drink;
+	}
 
-    public void setDrink(String drink) {
-        this.drink = drink;
-    }
+	public void setDrink(String drink) {
+		this.drink = drink;
+	}
 
-    public String getSize() {
-        return size;
-    }
+	public String getSize() {
+		return size;
+	}
 
-    public void setSize(String size) {
-        this.size = size;
-    }
+	public void setSize(String size) {
+		this.size = size;
+	}
 
-    public void setSugar(String sugar) {
-        this.sugar = sugar;
-    }
+	public String getSugar() {
 
-    public String getSugar() {
+		return sugar;
+	}
 
-         return  sugar;
-    }
+	public void setSugar(String sugar) {
+		this.sugar = sugar;
+	}
 
-    @Override
-    public String toString() {
+	@Override
+	public String toString() {
 
-        return drink+" "+size+" "+getSugar()+getMilk();
-    }
+		return drink + " " + size + " " + getSugar() + getMilk();
+	}
 }

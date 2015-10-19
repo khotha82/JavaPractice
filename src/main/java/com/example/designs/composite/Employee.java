@@ -9,36 +9,33 @@ public abstract class Employee {
 	private String salary;
 	private String position;
 
-    public Employee(String name, String salary, String position) {
-        this.name = name;
-        this.salary = salary;
-        this.position = position;
-    }
+	public Employee(String name, String salary, String position) {
+		this.name = name;
+		this.salary = salary;
+		this.position = position;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 
+	public String getSalary() {
+		return salary;
+	}
 
-    public String getSalary() {
-        return salary;
-    }
+	public String getPosition() {
+		return position;
+	}
 
+	public void print() {
 
-    public String getPosition() {
-        return position;
-    }
+		System.out.println("Employee Details");
 
+		System.out.println("Name" + getName());
+		System.out.println("Salary" + getSalary());
+		System.out.println("position" + getPosition());
 
-    public void print(){
-
-        System.out.println("Employee Details");
-
-        System.out.println("Name"+getName());
-        System.out.println("Salary"+getSalary());
-        System.out.println("position"+getPosition());
-
-        System.out.println();
-        System.out.println();
-    }
+		System.out.println();
+		System.out.println();
+	}
 }

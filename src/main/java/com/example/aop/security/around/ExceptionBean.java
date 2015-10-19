@@ -5,14 +5,13 @@ package com.example.aop.security.around;
  */
 public class ExceptionBean {
 
+	public void throwError() {
 
-    public void throwError(){
+		int i = 1 / 0;
+	}
 
-        int i=1/0;
-    }
+	public void throwInvalidError() {
 
-    public void throwInvalidError(){
-
-        throw new IllegalArgumentException("i will throw exception");
-    }
+		throw new IllegalArgumentException("i will throw exception");
+	}
 }

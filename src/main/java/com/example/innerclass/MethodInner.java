@@ -5,22 +5,21 @@ package com.example.innerclass;
  */
 public class MethodInner {
 
-    public void print(){
+	public static void main(String[] args) {
 
-        int k=0;
-        class PrintTest{
+		MethodInner methodInner = new MethodInner();
+		methodInner.print();
+	}
 
+	public void print() {
 
-            public void print(){
-                System.out.println("hello"+k);
-            }
-        }
-        new PrintTest().print();
-    }
+		int k = 0;
+		class PrintTest {
 
-    public static void main(String[] args) {
-
-        MethodInner methodInner=new MethodInner();
-        methodInner.print();
-    }
+			public void print() {
+				System.out.println("hello" + k);
+			}
+		}
+		new PrintTest().print();
+	}
 }

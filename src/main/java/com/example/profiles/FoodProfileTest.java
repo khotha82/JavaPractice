@@ -16,8 +16,8 @@ public class FoodProfileTest {
 		FoodProviderService foodProviderService = (FoodProviderService) applicationContext.getBean("lunchService");
 		List<Food> foodList = foodProviderService.getLunch();
 
-        for(Food f:foodList){
-            System.out.println(f);
-        }
-    }
+		for (Food f : foodList) {
+			System.out.println(f);
+		}
+	}
 }

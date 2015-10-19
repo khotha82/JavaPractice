@@ -5,5 +5,5 @@ package com.example.designs.command;
  */
 public interface Command {
 
-    public void execute();
+	public void execute();
 }

@@ -7,13 +7,13 @@ import org.apache.activemq.broker.BrokerService;
  */
 public class BrokerStart {
 
-    public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws Exception {
 
-        BrokerService broker = new BrokerService();
+		BrokerService broker = new BrokerService();
 
-// configure the broker
-        broker.addConnector("tcp://localhost:61616");
+		// configure the broker
+		broker.addConnector("tcp://localhost:61616");
 
-        broker.start();
-    }
+		broker.start();
+	}
 }

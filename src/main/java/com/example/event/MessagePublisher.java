@@ -1,6 +1,5 @@
 package com.example.event;
 
-import groovy.ui.SystemOutputInterceptor;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -11,31 +10,33 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class MessagePublisher implements ApplicationContextAware {
 
-    private ApplicationContext context;
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+	private ApplicationContext context;
 
-        this.context=applicationContext;
-    }
+	public static void main(String[] args) {
 
-    public ApplicationContext getContext() {
-        return context;
-    }
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring-messageEvents.xml");
 
-    public void setContext(ApplicationContext context) {
-        this.context = context;
-    }
-    public void publish(MessageEvent event){
-        context.publishEvent(event);
-    }
+		MessagePublisher publisher = (MessagePublisher) applicationContext.getBean("publisher");
+		publisher.publish(new MessageEvent(publisher, "Hello bOSS HOW RU"));
+		System.out.println("prirnnnn");
 
-    public static void main(String[] args) {
+	}
 
-        ApplicationContext applicationContext=new ClassPathXmlApplicationContext("spring-messageEvents.xml");
+	@Override
+	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 
-        MessagePublisher publisher= (MessagePublisher) applicationContext.getBean("publisher");
-        publisher.publish(new MessageEvent(publisher,"Hello bOSS HOW RU"));
-        System.out.println("prirnnnn");
+		this.context = applicationContext;
+	}
 
-    }
+	public ApplicationContext getContext() {
+		return context;
+	}
+
+	public void setContext(ApplicationContext context) {
+		this.context = context;
+	}
+
+	public void publish(MessageEvent event) {
+		context.publishEvent(event);
+	}
 }

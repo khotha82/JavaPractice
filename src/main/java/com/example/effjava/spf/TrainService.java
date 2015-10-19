@@ -5,9 +5,8 @@ package com.example.effjava.spf;
  */
 public class TrainService implements TravelService {
 
-
-    @Override
-    public String getVehical() {
-        return "Train";
-    }
+	@Override
+	public String getVehical() {
+		return "Train";
+	}
 }

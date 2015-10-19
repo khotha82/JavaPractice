@@ -1,15 +1,27 @@
 package com.example.java8.streams;
 
-import java.util.ArrayList;
+import static java.util.stream.Collectors.toList;
+
 import java.util.Arrays;
 import java.util.List;
-
-import static java.util.stream.Collectors.toList;
 
 /**
  * Created by krishna_hotha on 5/19/15 2015.
  */
 public class StreamTest {
+
+	public static void main(String[] args) {
+
+		List<Employee> employeeList = Arrays.asList(
+				new Employee("krishna", 1),
+				new Employee("hotha", 2),
+				new Employee("hhh", 3)
+				);
+
+		List<Integer> transIds = employeeList.stream().map(Employee::getId).collect(toList());
+
+		System.out.println(transIds);
+	}
 
 	public static class Employee {
 
@@ -37,17 +49,4 @@ public class StreamTest {
 			this.id = id;
 		}
 	}
-
-	public static void main(String[] args) {
-
-        List<Employee> employeeList=Arrays.asList(
-                new Employee("krishna",1),
-                new Employee("hotha",2),
-                new Employee("hhh",3)
-        );
-
-       List<Integer>transIds= employeeList.stream().map(Employee::getId).collect(toList());
-
-        System.out.println(transIds);
-    }
 }

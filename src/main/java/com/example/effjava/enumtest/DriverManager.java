@@ -9,16 +9,17 @@ public enum DriverManager {
 
 	private static final String s;
 
-    static {
-        s="hello";
-    }
-	public void print() {
-
-		System.out.println("hello check me" + s);
+	static {
+		s = "hello";
 	}
 
 	DriverManager() {
 
 		System.out.println("creating this consrrr");
+	}
+
+	public void print() {
+
+		System.out.println("hello check me" + s);
 	}
 }

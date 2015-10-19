@@ -8,12 +8,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class ReplacementTest {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring-methodreplace.xml");
-         ReplacementTarget target=(ReplacementTarget) context.getBean("standard");
-        ReplacementTarget target1=(ReplacementTarget) context.getBean("replacementTarget");
-        target.printMethod();
-        target1.printMethod();
-    }
+		ApplicationContext context = new ClassPathXmlApplicationContext("spring-methodreplace.xml");
+		ReplacementTarget target = (ReplacementTarget) context.getBean("standard");
+		ReplacementTarget target1 = (ReplacementTarget) context.getBean("replacementTarget");
+		target.printMethod();
+		target1.printMethod();
+	}
 }

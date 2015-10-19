@@ -8,28 +8,25 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class TravelServices {
 
+	private static final Map<String, Provider> providers = new ConcurrentHashMap<String, Provider>();
+	static {
 
+		providers.put("train", new TrainProvider());
+	}
 
+	// register the provider
+	public static void registerProvider(String name, Provider provider) {
+		providers.put(name, provider);
+	}
 
-    private static final Map<String, Provider> providers = new ConcurrentHashMap<String, Provider>();
-    static{
+	// service access API
+	public static TravelService newInstance(String name) {
+		Provider provider = providers.get(name);
+		if (provider == null) {
+			throw new IllegalArgumentException("Provider not found");
+		}
 
-        providers.put("train", new TrainProvider());
-    }
-
-    //register the provider
-    public static void registerProvider(String name, Provider provider){
-        providers.put(name, provider);
-    }
-
-    //service access API
-    public static TravelService newInstance(String name){
-        Provider provider = providers.get(name);
-        if (provider == null){
-            throw new IllegalArgumentException("Provider not found");
-        }
-
-        return provider.createService();
-    }
+		return provider.createService();
+	}
 
 }

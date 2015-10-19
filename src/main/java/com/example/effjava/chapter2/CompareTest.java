@@ -9,26 +9,24 @@ import java.util.TreeSet;
  */
 public class CompareTest {
 
+	public static void main(String[] args) {
 
-    public static void main(String[] args) {
+		BigDecimal bigDecimal = new BigDecimal("1.0");
+		BigDecimal bigDecimal2 = new BigDecimal("1.00");
 
-        BigDecimal bigDecimal=new BigDecimal("1.0");
-        BigDecimal bigDecimal2=new BigDecimal("1.00");
+		HashSet<BigDecimal> hashSet = new HashSet<>();
+		hashSet.add(bigDecimal);
+		hashSet.add(bigDecimal2);
 
-        HashSet<BigDecimal>hashSet=new HashSet<>();
-        hashSet.add(bigDecimal);
-        hashSet.add(bigDecimal2);
+		System.out.println(hashSet.size());
+		System.out.println(hashSet);
 
-        System.out.println(hashSet.size());
-        System.out.println(hashSet);
+		TreeSet<BigDecimal> treeSetSet = new TreeSet<>();
+		treeSetSet.add(bigDecimal);
+		treeSetSet.add(bigDecimal2);
 
-
-        TreeSet<BigDecimal> treeSetSet=new TreeSet<>();
-        treeSetSet.add(bigDecimal);
-        treeSetSet.add(bigDecimal2);
-
-        System.out.println(treeSetSet.size());
-        System.out.println(treeSetSet);
-    }
+		System.out.println(treeSetSet.size());
+		System.out.println(treeSetSet);
+	}
 
 }

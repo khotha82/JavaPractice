@@ -1,6 +1,5 @@
 import junit.framework.TestCase;
 
-import junit.framework.TestSuite;
 import org.junit.Test;
 
 import com.example.unittest.LargestNumber;
@@ -29,20 +28,19 @@ public class LargestNumberTest extends TestCase {
 
 	}
 
-
 	@Test
-	public void testEmptyArray()  {
+	public void testEmptyArray() {
 
 		System.out.println("in empty array");
 		try {
-			LargestNumber.getLargestNumber(new int[]{});
-            fail("should throw exception");
+			LargestNumber.getLargestNumber(new int[] {});
+			fail("should throw exception");
 		} catch (Exception e) {
 			assert (true);
 		}
 	}
 
-	public void testNullArray()  {
+	public void testNullArray() {
 
 		System.out.println("in null array");
 		try {
@@ -52,6 +50,5 @@ public class LargestNumberTest extends TestCase {
 			assert (true);
 		}
 	}
-
 
 }

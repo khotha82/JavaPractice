@@ -10,17 +10,15 @@ import javax.jms.TextMessage;
  */
 public class SimpleMessageListener implements MessageListener {
 
+	@Override
+	public void onMessage(Message message) {
 
-    @Override
-    public void onMessage(Message message) {
-
-        TextMessage textMessage=(TextMessage)message;
-        try {
-            System.out.println(textMessage.getText());
-        } catch (JMSException e) {
-            e.printStackTrace();
-        }
-    }
-
+		TextMessage textMessage = (TextMessage) message;
+		try {
+			System.out.println(textMessage.getText());
+		} catch (JMSException e) {
+			e.printStackTrace();
+		}
+	}
 
 }

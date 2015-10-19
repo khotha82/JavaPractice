@@ -5,11 +5,11 @@ package com.example.methodInjection;
  */
 public abstract class AbstractBean implements DemoBean {
 
-    @Override
-    public abstract HelperBean getHelperBean();
+	@Override
+	public abstract HelperBean getHelperBean();
 
-    @Override
-    public void doSomeThing() {
-        getHelperBean().doSomethingUseful();
-    }
+	@Override
+	public void doSomeThing() {
+		getHelperBean().doSomethingUseful();
+	}
 }

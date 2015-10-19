@@ -5,16 +5,17 @@ package com.example.aop.pointcut.performace;
  */
 public class SimpleBeanImpl implements SimpleBean {
 
-    private long dummy;
-    @Override
-    public void advised() {
+	private long dummy;
 
-        dummy=System.currentTimeMillis();
-    }
+	@Override
+	public void advised() {
 
-    @Override
-    public void unAdvised() {
+		dummy = System.currentTimeMillis();
+	}
 
-        dummy=System.currentTimeMillis();
-    }
+	@Override
+	public void unAdvised() {
+
+		dummy = System.currentTimeMillis();
+	}
 }

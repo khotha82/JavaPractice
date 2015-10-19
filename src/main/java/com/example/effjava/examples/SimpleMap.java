@@ -8,13 +8,12 @@ import java.util.Map;
  */
 public class SimpleMap {
 
+	public static void main(String[] args) {
 
-    public static void main(String[] args) {
+		Map<String, String> testMap = new HashMap<>();
 
-        Map<String,String> testMap=new HashMap<>();
+		testMap.put("name", "krishna");
 
-        testMap.put("name","krishna");
-
-        testMap.keySet();
-    }
+		testMap.keySet();
+	}
 }

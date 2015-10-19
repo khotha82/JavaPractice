@@ -8,19 +8,17 @@ import java.util.Deque;
  */
 public class ThreadTest {
 
+	public static void main(String[] args) {
 
+		Deque<Event> deque = new ArrayDeque<Event>();
 
-    public static void main(String[] args) {
+		WriterTask writerTask = new WriterTask(deque);
 
-        Deque<Event>deque=new ArrayDeque<Event>();
+		Thread thread = new Thread(writerTask);
+		thread.start();
 
-        WriterTask writerTask=new WriterTask(deque);
+		ClearTask clearTask = new ClearTask(deque);
+		clearTask.start();
 
-        Thread thread=new Thread(writerTask);
-        thread.start();
-
-        ClearTask clearTask=new ClearTask(deque);
-        clearTask.start();
-
-    }
+	}
 }

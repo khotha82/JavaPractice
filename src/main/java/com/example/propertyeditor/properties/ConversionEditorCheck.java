@@ -19,8 +19,7 @@ public class ConversionEditorCheck {
 		ConversionService conversionService = context.getBean(ConversionService.class);
 
 		AnotherContact anotherContact = conversionService.convert(editor, AnotherContact.class);
-        System.out.println(anotherContact);
-
+		System.out.println(anotherContact);
 
 	}
 }

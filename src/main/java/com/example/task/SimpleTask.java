@@ -9,10 +9,10 @@ import org.springframework.stereotype.Component;
 @Component("simpleTask")
 public class SimpleTask {
 
-    @Scheduled(fixedDelay = 100)
-    public void sayHello(){
+	@Scheduled(fixedDelay = 100)
+	public void sayHello() {
 
-        System.out.println("This is the simple task for ever");
-    }
+		System.out.println("This is the simple task for ever");
+	}
 
 }

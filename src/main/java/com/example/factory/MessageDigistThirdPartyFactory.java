@@ -8,19 +8,18 @@ import java.security.NoSuchAlgorithmException;
  */
 public class MessageDigistThirdPartyFactory {
 
+	private String algorithem = "MD5";
 
-    private String algorithem="MD5";
+	public String getAlgorithem() {
+		return algorithem;
+	}
 
-    public String getAlgorithem() {
-        return algorithem;
-    }
+	public void setAlgorithem(String algorithem) {
+		this.algorithem = algorithem;
+	}
 
-    public void setAlgorithem(String algorithem) {
-        this.algorithem = algorithem;
-    }
+	public MessageDigest getInstance() throws NoSuchAlgorithmException {
 
-    public MessageDigest getInstance() throws NoSuchAlgorithmException {
-
-        return MessageDigest.getInstance(algorithem);
-    }
+		return MessageDigest.getInstance(algorithem);
+	}
 }

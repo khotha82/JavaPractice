@@ -8,26 +8,8 @@ import java.util.List;
  */
 public class CoffeeShop {
 
+	private final Menu menu = new Menu();
 	private List<Order> orderList = new ArrayList<>();
-	private final Menu menu=new Menu();
-
-	public void takeOrder(String flavorName,int table) {
-
-		CoffeeFlavor flavour = menu.lookUp(flavorName);
-		Order order = new Order(table, flavour);
-		orderList.add(order);
-	}
-	public void service(){
-
-		for(Order order:orderList){
-			order.serve();
-		}
-	}
-	String report() {
-		return "\ntotal CoffeeFlavour objects made: "
-				+ menu.noOfFlavors()+" Total orders made"+orderList.size();
-	}
-
 
 	public static void main(String[] args) {
 
@@ -48,5 +30,24 @@ public class CoffeeShop {
 
 		shop.service();
 		System.out.println(shop.report());
+	}
+
+	public void takeOrder(String flavorName, int table) {
+
+		CoffeeFlavor flavour = menu.lookUp(flavorName);
+		Order order = new Order(table, flavour);
+		orderList.add(order);
+	}
+
+	public void service() {
+
+		for (Order order : orderList) {
+			order.serve();
+		}
+	}
+
+	String report() {
+		return "\ntotal CoffeeFlavour objects made: "
+				+ menu.noOfFlavors() + " Total orders made" + orderList.size();
 	}
 }

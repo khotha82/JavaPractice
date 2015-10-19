@@ -3,7 +3,6 @@ package com.example.task.taskexe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.context.support.GenericXmlApplicationContext;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.stereotype.Component;
 
@@ -13,24 +12,24 @@ import org.springframework.stereotype.Component;
 @Component("taskToExecute")
 public class TaskToExecute {
 
-    @Autowired
-    private TaskExecutor taskExecutor;
+	@Autowired
+	private TaskExecutor taskExecutor;
 
-    public void execute(){
+	public static void main(String[] args) {
 
-        taskExecutor.execute(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("Hello World from"+Thread.currentThread());
-            }
-        });
-    }
+		ApplicationContext context = new ClassPathXmlApplicationContext("spring-taskexe.xml");
+		TaskToExecute taskToExecute = (TaskToExecute) context.getBean("taskToExecute");
 
-    public static void main(String[] args) {
+		taskToExecute.execute();
+	}
 
-        ApplicationContext context=new ClassPathXmlApplicationContext("spring-taskexe.xml");
-        TaskToExecute taskToExecute=(TaskToExecute)context.getBean("taskToExecute");
+	public void execute() {
 
-        taskToExecute.execute();
-    }
+		taskExecutor.execute(new Runnable() {
+			@Override
+			public void run() {
+				System.out.println("Hello World from" + Thread.currentThread());
+			}
+		});
+	}
 }

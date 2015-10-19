@@ -5,21 +5,23 @@ package com.example.effjava.chapter2;
  */
 public class StringTest {
 
-    String s;
+	String s;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof StringTest)) return false;
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (!(o instanceof StringTest))
+			return false;
 
-        StringTest that = (StringTest) o;
+		StringTest that = (StringTest) o;
 
-        return !(s != null ? !s.equals(that.s) : that.s != null);
+		return !(s != null ? !s.equals(that.s) : that.s != null);
 
-    }
+	}
 
-    @Override
-    public int hashCode() {
-        return s != null ? s.hashCode() : 0;
-    }
+	@Override
+	public int hashCode() {
+		return s != null ? s.hashCode() : 0;
+	}
 }

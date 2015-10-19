@@ -21,5 +21,5 @@ public class RemoteControlTest {
 		});// invoker will get the command
 		simpleRemote.pressButton();
 
-    }
+	}
 }

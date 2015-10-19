@@ -5,8 +5,8 @@ package com.example.methodreplacement;
  */
 public class ReplacementTarget {
 
-    public void printMethod(){
+	public void printMethod() {
 
-        System.out.println("This is the correct method for replcaement");
-    }
+		System.out.println("This is the correct method for replcaement");
+	}
 }

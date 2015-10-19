@@ -8,25 +8,23 @@ import java.util.Map;
  */
 public class MapTest {
 
+	public static void main(String[] args) {
 
-    public static void main(String[] args) {
+		Map<String, String> hashMap = new HashMap<String, String>();
 
+		hashMap.put("1", "Krishna");
+		hashMap.put("2", "Raja");
 
-        Map<String,String> hashMap=new HashMap<String,String>();
+		Map<String, String> childMap = new HashMap<String, String>();
 
-        hashMap.put("1","Krishna");
-        hashMap.put("2","Raja");
+		childMap.put("3", "Pranav");
+		childMap.put("4", "Arnav");
 
-        Map<String,String> childMap=new HashMap<String,String>();
+		childMap.putAll(hashMap);
 
-        childMap.put("3","Pranav");
-        childMap.put("4","Arnav");
+		System.out.println(hashMap.size());
 
-        childMap.putAll(hashMap);
+		System.out.println(childMap.size());
 
-        System.out.println(hashMap.size());
-
-        System.out.println(childMap.size());
-
-    }
+	}
 }

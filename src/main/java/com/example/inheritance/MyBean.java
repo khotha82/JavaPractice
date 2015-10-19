@@ -11,6 +11,17 @@ public class MyBean {
 	private String name;
 	private String age;
 
+	public static void main(String[] args) {
+
+		ApplicationContext context = new ClassPathXmlApplicationContext("spring-inheritance.xml");
+		MyBean mb = (MyBean) context.getBean("inheritParent");
+		System.out.println(mb.getAge() + mb.getName());
+
+		MyBean mb1 = (MyBean) context.getBean("inheritChild");
+		System.out.println(mb1.getAge() + mb1.getName());
+
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -26,15 +37,4 @@ public class MyBean {
 	public void setAge(String age) {
 		this.age = age;
 	}
-
-    public static void main(String[] args) {
-
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring-inheritance.xml");
-        MyBean mb=(MyBean)context.getBean("inheritParent");
-        System.out.println(mb.getAge()+mb.getName());
-
-        MyBean mb1=(MyBean)context.getBean("inheritChild");
-        System.out.println(mb1.getAge()+mb1.getName());
-
-    }
 }

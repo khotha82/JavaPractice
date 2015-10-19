@@ -5,10 +5,9 @@ package com.example.designs.builder2;
  */
 public class NutricionFactsTest {
 
+	public static void main(String[] args) {
 
-    public static void main(String[] args) {
-
-        NutricionFacts nutricionFacts=new NutricionFacts.Builder(10,20).setCalories(10).setCarboHydrate(20).setSodium(100).build();
-        System.out.println(nutricionFacts);
-    }
+		NutricionFacts nutricionFacts = new NutricionFacts.Builder(10, 20).setCalories(10).setCarboHydrate(20).setSodium(100).build();
+		System.out.println(nutricionFacts);
+	}
 }

@@ -1,47 +1,44 @@
 package com.example.aop.security.around;
 
+import java.lang.reflect.Method;
+
 import org.springframework.aop.ThrowsAdvice;
 import org.springframework.aop.framework.ProxyFactory;
-
-import java.lang.reflect.Method;
 
 /**
  * Created by krishna_hotha on 4/22/15.
  */
-public class ExceptionAdvice  implements ThrowsAdvice{
+public class ExceptionAdvice implements ThrowsAdvice {
 
+	public static void main(String[] args) {
 
+		ExceptionBean exceptionBean = new ExceptionBean();
+		ProxyFactory proxyFactory = new ProxyFactory();
+		proxyFactory.setTarget(exceptionBean);
+		proxyFactory.addAdvice(new ExceptionAdvice());
 
-    public void afterThrowing(Exception ex) throws Exception {
+		ExceptionBean beans = (ExceptionBean) proxyFactory.getProxy();
 
-        logException(ex);
-        throw ex;
-    }
+		beans.throwError();
+		System.out.println("cheekkkkk");
+	}
 
-    public void afterThrowing(Method method, Object[] args, Object target,
-                              ArithmeticException ex) throws MySystemException {
+	public void afterThrowing(Exception ex) throws Exception {
 
-        System.out.println("this is kind of new exception");
-        throw new MySystemException(ex);
-    }
+		logException(ex);
+		throw ex;
+	}
 
-    private void logException(Exception ex) {
+	public void afterThrowing(Method method, Object[] args, Object target,
+			ArithmeticException ex) throws MySystemException {
 
-        System.out.println("throwing this exception");
-    }
+		System.out.println("this is kind of new exception");
+		throw new MySystemException(ex);
+	}
 
-    public static void main(String[] args) {
+	private void logException(Exception ex) {
 
-        ExceptionBean exceptionBean=new ExceptionBean();
-        ProxyFactory proxyFactory=new ProxyFactory();
-        proxyFactory.setTarget(exceptionBean);
-        proxyFactory.addAdvice(new ExceptionAdvice());
-
-        ExceptionBean beans=(ExceptionBean)proxyFactory.getProxy();
-
-        beans.throwError();
-        System.out.println("cheekkkkk");
-    }
-
+		System.out.println("throwing this exception");
+	}
 
 }

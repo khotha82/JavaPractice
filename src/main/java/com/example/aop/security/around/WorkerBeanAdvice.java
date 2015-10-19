@@ -9,33 +9,33 @@ import org.springframework.util.StopWatch;
  * Created by krishna_hotha on 4/22/15.
  */
 public class WorkerBeanAdvice implements MethodInterceptor {
-    @Override
-    public Object invoke(MethodInvocation methodInvocation) throws Throwable {
+	public static void main(String[] args) {
 
-        StopWatch stopWatch=new StopWatch();
-        stopWatch.start();
-        Object returnValue=methodInvocation.proceed();
-        stopWatch.stop();
-        dumbInfo(methodInvocation,stopWatch.getTotalTimeMillis());
-        return returnValue;
-    }
+		WorkerBean workerBean = new WorkerBean();
+		ProxyFactory proxyFactory = new ProxyFactory();
+		proxyFactory.setTarget(workerBean);
+		proxyFactory.addAdvice(new WorkerBeanAdvice());
 
-    private void dumbInfo(MethodInvocation methodInvocation, long totalTimeMillis) {
+		WorkerBean workerBean1 = (WorkerBean) proxyFactory.getProxy();
 
-        System.out.println("long milliseconds "+totalTimeMillis);
-        System.out.println(methodInvocation.getMethod().getName());
-    }
+		workerBean1.doWork(10000);
 
-    public static void main(String[] args) {
+	}
 
-        WorkerBean workerBean=new WorkerBean();
-        ProxyFactory proxyFactory=new ProxyFactory();
-        proxyFactory.setTarget(workerBean);
-        proxyFactory.addAdvice(new WorkerBeanAdvice());
+	@Override
+	public Object invoke(MethodInvocation methodInvocation) throws Throwable {
 
-        WorkerBean workerBean1= (WorkerBean) proxyFactory.getProxy();
+		StopWatch stopWatch = new StopWatch();
+		stopWatch.start();
+		Object returnValue = methodInvocation.proceed();
+		stopWatch.stop();
+		dumbInfo(methodInvocation, stopWatch.getTotalTimeMillis());
+		return returnValue;
+	}
 
-        workerBean1.doWork(10000);
+	private void dumbInfo(MethodInvocation methodInvocation, long totalTimeMillis) {
 
-    }
+		System.out.println("long milliseconds " + totalTimeMillis);
+		System.out.println(methodInvocation.getMethod().getName());
+	}
 }

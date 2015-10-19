@@ -3,44 +3,44 @@ package com.example.threads.interrupt;
 /**
  * Created by krishna_hotha on 5/28/15 2015.
  */
-public class PrimeGenerator  implements Runnable{
-    @Override
-    public void run() {
+public class PrimeGenerator implements Runnable {
+	public static void main(String[] args) throws InterruptedException {
 
-        int number=1;
+		Thread thread = new Thread(new PrimeGenerator());
+		thread.start();
 
-        while(true){
+		Thread.sleep(50000);
 
-            if(isPrimeNumber(number)){
-                System.out.println(number);
-            }
-            if(Thread.currentThread().isInterrupted()){
-                System.out.println("killing me ");
-                return;
-            }
-            number++;
-        }
-    }
+		thread.interrupt();
+	}
 
-    private boolean isPrimeNumber(int number) {
-        int j=2;
-        while(j<=(number/2)){
+	@Override
+	public void run() {
 
-            if(number%j==0){
-                return false;
-            }
-            j++;
-        }
-        return true;
-    }
+		int number = 1;
 
-    public static void main(String[] args) throws InterruptedException {
+		while (true) {
 
-        Thread thread=new Thread(new PrimeGenerator());
-        thread.start();
+			if (isPrimeNumber(number)) {
+				System.out.println(number);
+			}
+			if (Thread.currentThread().isInterrupted()) {
+				System.out.println("killing me ");
+				return;
+			}
+			number++;
+		}
+	}
 
-        Thread.sleep(50000);
+	private boolean isPrimeNumber(int number) {
+		int j = 2;
+		while (j <= (number / 2)) {
 
-        thread.interrupt();
-    }
+			if (number % j == 0) {
+				return false;
+			}
+			j++;
+		}
+		return true;
+	}
 }

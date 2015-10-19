@@ -11,7 +11,7 @@ import org.springframework.beans.factory.InitializingBean;
 public class MessageDigistFactory implements FactoryBean<MessageDigest>, InitializingBean {
 
 	private MessageDigest messageDigest;
-	private String algorithemName ="MD5";
+	private String algorithemName = "MD5";
 
 	public String getAlgorithemName() {
 		return algorithemName;
@@ -32,7 +32,7 @@ public class MessageDigistFactory implements FactoryBean<MessageDigest>, Initial
 	@Override
 	public MessageDigest getObject() throws Exception {
 
-        return messageDigest;
+		return messageDigest;
 	}
 
 	@Override
@@ -43,13 +43,12 @@ public class MessageDigistFactory implements FactoryBean<MessageDigest>, Initial
 	@Override
 	public boolean isSingleton() {
 
-        return true;
+		return true;
 	}
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
 
-
-        messageDigest=MessageDigest.getInstance(algorithemName);
+		messageDigest = MessageDigest.getInstance(algorithemName);
 	}
 }

@@ -5,8 +5,8 @@ package com.example.methodInjection;
  */
 public class HelperBean {
 
-        public void doSomethingUseful(){
+	public void doSomethingUseful() {
 
-            System.out.println("this method is really useful");
-        }
+		System.out.println("this method is really useful");
+	}
 }

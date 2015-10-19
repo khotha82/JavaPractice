@@ -7,18 +7,18 @@ import java.util.HashMap;
  */
 public class ShapeFactory {
 
-    private static final HashMap<String,Shape>circleMap=new HashMap<>();
+	private static final HashMap<String, Shape> circleMap = new HashMap<>();
 
-    public static Shape getCircle(String color){
+	public static Shape getCircle(String color) {
 
-        Shape circle=circleMap.get(color);
+		Shape circle = circleMap.get(color);
 
-        if(circle==null){
+		if (circle == null) {
 
-            circle=new Circle(color);
-            circleMap.put(color,circle);
-            System.out.println("creating color"+color);
-        }
-        return circle;
-    }
+			circle = new Circle(color);
+			circleMap.put(color, circle);
+			System.out.println("creating color" + color);
+		}
+		return circle;
+	}
 }

@@ -5,8 +5,8 @@ package com.example.aop.security.around;
  */
 public class MySystemException extends Throwable {
 
-    public MySystemException(ArithmeticException ex) {
+	public MySystemException(ArithmeticException ex) {
 
-        System.out.println(ex);
-    }
+		System.out.println(ex);
+	}
 }

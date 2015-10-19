@@ -19,8 +19,8 @@ public class StoredProcedureMapper extends StoredProcedure {
 
 		super(dataSource, storedProcedure);
 		declareParameter(new SqlParameter("A", OracleTypes.NUMBER));
-        declareParameter(new SqlParameter("B", OracleTypes.NUMBER));
-        declareParameter(new SqlOutParameter("TOTAL", OracleTypes.NUMBER));
+		declareParameter(new SqlParameter("B", OracleTypes.NUMBER));
+		declareParameter(new SqlOutParameter("TOTAL", OracleTypes.NUMBER));
 
 	}
 

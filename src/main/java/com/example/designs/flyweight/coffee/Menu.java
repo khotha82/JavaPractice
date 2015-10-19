@@ -8,18 +8,18 @@ import java.util.Map;
  */
 public class Menu {
 
-    private Map<String,CoffeeFlavor> stringCoffeeFlavorMap=new HashMap<>();
+	private Map<String, CoffeeFlavor> stringCoffeeFlavorMap = new HashMap<>();
 
-    public CoffeeFlavor lookUp(String flavorName){
+	public CoffeeFlavor lookUp(String flavorName) {
 
-        if(!stringCoffeeFlavorMap.containsKey(flavorName)){
+		if (!stringCoffeeFlavorMap.containsKey(flavorName)) {
 
-            stringCoffeeFlavorMap.put(flavorName,new CoffeeFlavor(flavorName));
-        }
-        return stringCoffeeFlavorMap.get(flavorName);
-    }
+			stringCoffeeFlavorMap.put(flavorName, new CoffeeFlavor(flavorName));
+		}
+		return stringCoffeeFlavorMap.get(flavorName);
+	}
 
-    public int noOfFlavors(){
-       return stringCoffeeFlavorMap.size();
-    }
+	public int noOfFlavors() {
+		return stringCoffeeFlavorMap.size();
+	}
 }

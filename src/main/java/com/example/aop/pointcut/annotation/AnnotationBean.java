@@ -5,14 +5,14 @@ package com.example.aop.pointcut.annotation;
  */
 public class AnnotationBean {
 
+	public void foo() {
 
-    public void foo(){
+		System.out.println("this is foo method");
+	}
 
-        System.out.println("this is foo method");
-    }
-    @AdviceRequired
-    public void bar(){
+	@AdviceRequired
+	public void bar() {
 
-        System.out.println("this is bar method");
-    }
+		System.out.println("this is bar method");
+	}
 }

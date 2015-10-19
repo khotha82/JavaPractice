@@ -7,10 +7,9 @@ import com.example.effjava.scopetest.*;
  */
 public class TestScope {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-
-       ParentTest parentTest=ParentTest.getParent("child1");
-        parentTest.printMe();
-    }
+		ParentTest parentTest = ParentTest.getParent("child1");
+		parentTest.printMe();
+	}
 }

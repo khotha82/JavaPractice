@@ -5,6 +5,6 @@ package com.example.designs.flyweight;
  */
 public interface Shape {
 
-    public void draw();
+	public void draw();
 
 }

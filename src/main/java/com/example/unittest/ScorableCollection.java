@@ -8,16 +8,16 @@ import java.util.List;
  */
 public class ScorableCollection {
 
-    public List<Scorable> scorableList=new ArrayList<>();
+	public List<Scorable> scorableList = new ArrayList<>();
 
-    public void add(Scorable scorable){
-        scorableList.add(scorable);
-    }
+	public void add(Scorable scorable) {
+		scorableList.add(scorable);
+	}
 
-    public int getAverage(){
+	public int getAverage() {
 
-		int sum = scorableList.stream().mapToInt(Scorable :: getScore).sum();
+		int sum = scorableList.stream().mapToInt(Scorable::getScore).sum();
 
-        return sum/scorableList.size();
-    }
+		return sum / scorableList.size();
+	}
 }

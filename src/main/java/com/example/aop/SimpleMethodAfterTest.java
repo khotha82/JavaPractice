@@ -1,31 +1,31 @@
 package com.example.aop;
 
+import java.lang.reflect.Method;
+
 import org.springframework.aop.AfterReturningAdvice;
 import org.springframework.aop.framework.ProxyFactory;
-
-import java.lang.reflect.Method;
 
 /**
  * Created by krishna_hotha on 4/22/15.
  */
 public class SimpleMethodAfterTest implements AfterReturningAdvice {
-    @Override
-    public void afterReturning(Object o, Method method, Object[] objects, Object o1) throws Throwable {
+	public static void main(String[] args) {
 
-        System.out.println("this is after return the method");
-    }
+		MessageWriter messageWriter = new MessageWriter();
 
-    public static void main(String[] args) {
+		SimpleMethodAfterTest simpleMethodAfterTest = new SimpleMethodAfterTest();
+		ProxyFactory proxyFactory = new ProxyFactory();
+		proxyFactory.addAdvice(simpleMethodAfterTest);
+		proxyFactory.setTarget(messageWriter);
+		MessageWriter messageWriter1 = (MessageWriter) proxyFactory.getProxy();
 
-        MessageWriter messageWriter=new MessageWriter();
+		messageWriter1.print();
+	}
 
-        SimpleMethodAfterTest simpleMethodAfterTest=new SimpleMethodAfterTest();
-        ProxyFactory proxyFactory=new ProxyFactory();
-        proxyFactory.addAdvice(simpleMethodAfterTest);
-        proxyFactory.setTarget(messageWriter);
-        MessageWriter messageWriter1=(MessageWriter)proxyFactory.getProxy();
+	@Override
+	public void afterReturning(Object o, Method method, Object[] objects, Object o1) throws Throwable {
 
-        messageWriter1.print();
-    }
+		System.out.println("this is after return the method");
+	}
 
 }

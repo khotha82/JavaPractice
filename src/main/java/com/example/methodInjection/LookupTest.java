@@ -14,7 +14,7 @@ public class LookupTest {
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring-methodreplacement.xml");
 
 		AbstractBean ab = (AbstractBean) context.getBean("abstractBean");
-        StandardDemoBean sb=(StandardDemoBean)context.getBean("standardBean");
+		StandardDemoBean sb = (StandardDemoBean) context.getBean("standardBean");
 
 		System.out.println("Calling with demo bean");
 		printInfo(ab);
@@ -40,7 +40,7 @@ public class LookupTest {
 
 		for (int x = 0; x < 100000; x++) {
 			HelperBean helper = ab.getHelperBean();
-		//	helper.doSomethingUseful();
+			// helper.doSomethingUseful();
 		}
 
 		stopWatch.stop();

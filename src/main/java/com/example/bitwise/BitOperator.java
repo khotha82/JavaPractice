@@ -5,11 +5,11 @@ package com.example.bitwise;
  */
 public class BitOperator {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-        Integer i=5;
-        System.out.println(Integer.toBinaryString(i));
-        System.out.println(Integer.toBinaryString(~i));
-        System.out.println(~i);
-    }
+		Integer i = 5;
+		System.out.println(Integer.toBinaryString(i));
+		System.out.println(Integer.toBinaryString(~i));
+		System.out.println(~i);
+	}
 }

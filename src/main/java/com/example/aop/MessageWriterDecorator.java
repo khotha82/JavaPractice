@@ -14,7 +14,7 @@ public class MessageWriterDecorator implements MethodInterceptor {
 
 		Object returnValue = methodInvocation.proceed();
 
-        System.out.println("It is thrilling");
+		System.out.println("It is thrilling");
 		return returnValue;
 	}
 }

@@ -11,10 +11,9 @@ public class LamdaTest {
 
 	public static void main(String[] args) {
 
-
-        List<String> namesList = new ArrayList<String>();
-        namesList.add("krishna");
-        namesList.add("htoha");
-        Collections.sort(namesList,(a,b)->b.compareTo(a));
-    }
+		List<String> namesList = new ArrayList<String>();
+		namesList.add("krishna");
+		namesList.add("htoha");
+		Collections.sort(namesList, (a, b) -> b.compareTo(a));
+	}
 }

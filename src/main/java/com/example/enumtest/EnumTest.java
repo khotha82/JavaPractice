@@ -5,28 +5,29 @@ package com.example.enumtest;
  */
 public class EnumTest {
 
+	public static void main(String[] args) {
 
-    private enum Role {
-        S("STUDENT"), I("INSTRUCTOR");
-        String type;
+		for (Role r : Role.values())
+			System.out.println(r.toString());
+	}
 
-        Role(String type) {
-            this.type = type;
-        }
+	private enum Role {
+		S("STUDENT"), I("INSTRUCTOR");
+		String type;
 
-        public String getType() {
-            return type;
-        }
+		Role(String type) {
+			this.type = type;
+		}
 
-        @Override
-        public String toString() {
-            return type;
-        }
-    }
+		public String getType() {
+			return type;
+		}
 
-    public static void main(String[] args) {
+		@Override
+		public String toString() {
+			return type;
+		}
+	}
 
-        for(Role r:Role.values())
-        System.out.println(r.toString());
-    }
+
 }

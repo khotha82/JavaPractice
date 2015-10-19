@@ -5,15 +5,15 @@ package com.example.designs.flyweight.coffee;
  */
 public class Order {
 
-    private final int tableNumber;
-    private final CoffeeFlavor flavor;
+	private final int tableNumber;
+	private final CoffeeFlavor flavor;
 
-    public Order(int tableNumber, CoffeeFlavor flavor) {
-        this.tableNumber = tableNumber;
-        this.flavor = flavor;
-    }
+	public Order(int tableNumber, CoffeeFlavor flavor) {
+		this.tableNumber = tableNumber;
+		this.flavor = flavor;
+	}
 
-    public void serve(){
-        System.out.println("serving coffee to table"+tableNumber+" "+flavor);
-    }
+	public void serve() {
+		System.out.println("serving coffee to table" + tableNumber + " " + flavor);
+	}
 }
